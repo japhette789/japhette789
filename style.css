@@ -53,7 +53,7 @@ body {
 }
 
 .container {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
     position: relative;
@@ -92,6 +92,7 @@ body {
     color: var(--text-pure);
     letter-spacing: -0.5px;
 }
+.logo .dot { color: var(--text-muted); animation: pulse 1.5s infinite; }
 
 .nav-links { display: flex; list-style: none; align-items: center; }
 .nav-links li { margin-left: 24px; }
@@ -173,12 +174,21 @@ body {
 .glow-txt { color: var(--text-pure); text-shadow: 0 0 20px var(--glow-strength); }
 .hero-desc { font-size: 1.2rem; color: var(--text-muted); max-width: 720px; margin: 0 auto 40px auto; }
 
-/* Rolling Tickers Metrics Display */
+/* 10-Item Metrics Display Grid Alignment */
 .metrics-section { padding: 60px 0; background: #000000; border-top: 1px solid var(--border-dim); border-bottom: 1px solid var(--border-dim); }
-.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center; }
-.metric-num { font-size: 3rem; font-weight: 800; color: var(--text-pure); }
-.plus { font-size: 1.4rem; color: var(--text-muted); margin-left: 2px; }
-.metric-title { display: block; font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-top: 6px; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; text-align: center; }
+
+@media (max-width: 1024px) {
+    .grid-5 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+    .grid-5 { grid-template-columns: repeat(2, 1fr); }
+}
+
+.metric-card { padding: 10px; }
+.metric-num { font-size: 2.6rem; font-weight: 800; color: var(--text-pure); display: inline-block; }
+.plus { font-size: 1.2rem; color: var(--text-muted); margin-left: 2px; font-weight: 700; }
+.metric-title { display: block; font-family: 'Share Tech Mono', monospace; font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; margin-top: 8px; line-height: 1.3; }
 
 /* Capability Matrix Formats */
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
@@ -193,7 +203,7 @@ body {
 .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
 .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-/* Advanced Skill Tag Tooltips & Brand Card Modifiers */
+/* Skill Tag Tooltips & Brand Card Modifiers */
 .filter-controls { display: flex; gap: 8px; margin-bottom: 35px; flex-wrap: wrap; }
 .tag-grid { display: flex; flex-wrap: wrap; gap: 10px; }
 
@@ -220,7 +230,7 @@ body {
 
 .logo-card {
     background: var(--bg-card); border: 1px solid var(--border-dim); padding: 24px 16px;
-    text-align: center; border-radius: 4px; transition: all 0.2s ease; display: flex; flex-direction: column; align-items: center; gap: 12px;
+    text-align: center; border-radius: 4px; transition: all 0.2s ease; display: flex; flex-direction: column; align-items: center; gap: 12px; height: 100%; min-height: 120px; justify-content: center;
 }
 .logo-card i { font-size: 2.2rem; filter: grayscale(100%); opacity: 0.7; transition: all 0.2s ease; }
 .tool-name { font-family: 'Share Tech Mono', monospace; font-size: 0.85rem; color: var(--text-muted); }
@@ -280,6 +290,7 @@ footer { background: #000000; color: #44444a; padding: 45px 0; font-size: 0.8rem
     90% { transform:translate(10%, -5%); }
 }
 @keyframes blink { 50% { border-color: transparent; } }
+@keyframes pulse { 50% { opacity: 0.3; } }
 
 @media (max-width: 768px) {
     .brutalist-title { font-size: 2.5rem; }
