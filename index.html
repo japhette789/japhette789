@@ -3,152 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japhette | Operations Specialist & Systems Virtual Assistant</title>
+    <title>Japhette Pulido | Operations Architect & Pre-Sales Engineer</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
 
+    <div class="film-grain"></div>
+    <div class="grid-layer"></div>
+
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Japhette<span class="dot">.</span></a>
+            <a href="#" class="logo">JP<span class="dot">_</span></a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#metrics">Capabilities</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact" class="btn-nav">Hire Me</a></li>
+                <li><a href="#about">// about</a></li>
+                <li><a href="#matrix">// capabilities</a></li>
+                <li><a href="#skills">// tool_ecosystem</a></li>
+                <li><a href="#experience">// track_record</a></li>
+                <li><a href="#references">// references</a></li>
+                <li><a href="#contact" class="btn-nav">initiate_contact</a></li>
             </ul>
+            <button class="audio-toggle" id="audioBtn" title="Toggle Ambient Track">
+                <span class="audio-icon">▶</span> <span class="audio-text">PLAY AMBIENCE</span>
+            </button>
         </div>
     </nav>
 
-    <header class="hero">
+    <audio id="ambientTrack" loop preload="auto">
+        <source src="https://assets.codepen.io/25868/neutral-ambient.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="hero" id="about">
         <div class="hero-container">
-            <span class="hero-badge">Systems Engineering & Executive Operations</span>
-            <h1>Optimizing Systems.<br><span class="gradient-text">Elevating Operations.</span></h1>
-            <p>High-level Virtual Assistant and Operations Manager specializing in automating repetitive workflows, managing secure data architecture, and designing friction-free infrastructure for scaling businesses.</p>
+            <div class="terminal-card">
+                <div class="terminal-header">
+                    <span class="dot-btn"></span><span class="dot-btn"></span><span class="dot-btn"></span>
+                    <span class="terminal-title">system_operator_boot.sh</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="term-line"><span class="term-dir">japhette@infrastructure:~#</span> loading global_ledger.json...</p>
+                    <p class="term-line"><span class="term-dir">japhette@infrastructure:~#</span> operations_manager.sys status [ACTIVE]</p>
+                    <p class="term-line"><span class="term-dir">japhette@infrastructure:~#</span> virtual_assistant.core tool_sync [OK]</p>
+                    <p class="term-line"><span class="term-dir">japhette@infrastructure:~#</span> presales_engineer.env routes [ONLINE]</p>
+                    <p class="term-line active-line"><span class="term-dir">japhette@infrastructure:~#</span> <span class="typing-cursor" id="typewriter"></span></p>
+                </div>
+            </div>
+
+            <span class="hero-badge">Operations Infrastructure & Client Conversion</span>
+            <h1 class="brutalist-title">TURNING ARCHITECTURES INTO<br><span class="glow-txt">SMOOTH EXPERIENCES.</span></h1>
+            <p class="hero-desc">High-performance Operations Manager and Virtual Assistant specializing in removing workflow friction, securing enterprise data integrity, and conducting pre-sales technical walk-throughs.</p>
+            
             <div class="hero-buttons">
                 <a href="#experience" class="btn-primary">Analyze Experience</a>
-                <a href="#services" class="btn-secondary">View Core Services</a>
+                <a href="#contact" class="btn-secondary">Secure Availability</a>
             </div>
         </div>
     </header>
 
-    <section id="metrics" class="metrics-section">
-        <div class="container grid-3">
+    <section class="metrics-section">
+        <div class="container grid-4">
             <div class="metric-card">
-                <span class="metric-num">100k+</span>
-                <span class="metric-title">Financial Records Managed</span>
+                <span class="metric-num" data-target="24">0</span><span class="plus">+ Project Tracks</span>
+                <span class="metric-title">Combined Management</span>
             </div>
             <div class="metric-card">
-                <span class="metric-num">100%</span>
-                <span class="metric-title">SOP Workflow Precision</span>
+                <span class="metric-num" data-target="100">0</span><span class="plus">% SLA</span>
+                <span class="metric-title">Task Deadline Precision</span>
             </div>
             <div class="metric-card">
-                <span class="metric-num">14+ Yrs</span>
-                <span class="metric-title">Combined Operational Leadership</span>
+                <span class="metric-num" data-target="250000">0</span><span class="plus">+ Units</span>
+                <span class="metric-title">Financial Records Audited</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-num" data-target="340">0</span><span class="plus">+ Solutions</span>
+                <span class="metric-title">Pre-Sales Demonstrations</span>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="matrix" class="section border-top">
         <div class="container">
             <div class="section-header">
-                <h2>The Competitive Edge</h2>
+                <span class="index-num">// 01 //</span>
+                <h2>Operational Capabilities Matrix</h2>
                 <div class="line"></div>
             </div>
-            <div class="about-card">
-                <p class="about-lead">I eliminate the structural chaos that slows growing businesses down.</p>
-                <p class="about-text">With a dual background in technical systems optimization and executive-level virtual support, I step into operations to standardize loose processes, guard data integrity, and implement modern automation pipelines. I don't just manage tasks—I engineer business systems that run independently.</p>
-                
-                <div class="tag-grid">
-                    <span class="skill-tag">Systems Engineering</span>
-                    <span class="skill-tag">Workflow Automation</span>
-                    <span class="skill-tag">SOP Architecture</span>
-                    <span class="skill-tag">Financial Ledger Auditing</span>
-                    <span class="skill-tag">CRM & Lead Infrastructure</span>
-                    <span class="skill-tag">IT Infrastructure Management</span>
-                    <span class="skill-tag">Cross-functional Coordination</span>
-                    <span class="skill-tag">Client Experience Optimization</span>
+            <div class="grid-3">
+                <div class="service-card">
+                    <span class="card-num">01/</span>
+                    <h3>Email Management</h3>
+                    <p>Rigorous sorting architecture, priority filtering loops, and systematic inbox cleanup rules to protect focus windows.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-num">02/</span>
+                    <h3>Calendar Synchronization</h3>
+                    <p>High-stakes multi-timezone coordination, booking conflicts avoidance, and automated appointment loops.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-num">03/</span>
+                    <h3>Data Entry & Vault Audits</h3>
+                    <p>Processing system parameters into central ledgers with strict focus on database structural integrity.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-num">04/</span>
+                    <h3>Customer Support Systems</h3>
+                    <p>Managing multi-channel inbound ticketing layers, stabilizing customer retention via rapid SLA resolutions.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-num">05/</span>
+                    <h3>Reporting & Analytics</h3>
+                    <p>Synthesizing operational datasets, project timeline deviations, and generating performance briefs for leadership.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-num">06/</span>
+                    <h3>Pre-Sales Technical Demos</h3>
+                    <p>Mapping client bottlenecks live, configuring sandboxes, and demonstrating features to close accounts.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-num">07/</span>
+                    <h3>Workflow Automation Architecture</h3>
+                    <p>Eliminating manual tasks by integrating tracking engines and communications loops across tool stacks.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-num">08/</span>
+                    <h3>SOP Playbook Authoring</h3>
+                    <p>Writing detailed operational standard manuals to guarantee consistent, error-free execution across teams.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-num">09/</span>
+                    <h3>Financial Ledger Integrity</h3>
+                    <p>Auditing transaction histories, tracking accounts cancellation parameters, and protecting payment processing logs.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-num">10/</span>
+                    <h3>Cross-Functional Team Sync</h3>
+                    <p>Aligning project managers, technical specialists, and offshore teams to keep high-stakes targets on schedule.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section bg-light">
+    <section id="skills" class="section border-top bg-noir">
         <div class="container">
             <div class="section-header">
+                <span class="index-num">// 02 //</span>
+                <h2>Ecosystem Stack & Tools Matrix</h2>
+                <div class="line"></div>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Hover over any element below to reveal its exact operational context:</p>
+            </div>
+
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">Full Stack</button>
+                <button class="filter-btn" data-filter="admin">Virtual Administration</button>
+                <button class="filter-btn" data-filter="ops">Operations Framework</button>
+                <button class="filter-btn" data-filter="tools">Software Ecosystem</button>
+            </div>
+
+            <div class="tag-grid">
+                <div class="skill-tag-wrapper" data-cat="admin">
+                    <span class="skill-tag">Inbox Optimization</span>
+                    <div class="tag-popover">Cleared and structured 1,000+ unorganized communication layers for business executives.</div>
+                </div>
+                <div class="skill-tag-wrapper" data-cat="admin">
+                    <span class="skill-tag">Calendar Management</span>
+                    <div class="tag-popover">Synchronized complex stakeholder cross-timezone scheduling loops with zero booking conflicts.</div>
+                </div>
+                <div class="skill-tag-wrapper" data-cat="ops">
+                    <span class="skill-tag">SOP Playbook Architecture</span>
+                    <div class="tag-popover">Authored internal manuals that accelerated onboarding timeframes across multiple units.</div>
+                </div>
+                <div class="skill-tag-wrapper" data-cat="admin">
+                    <span class="skill-tag">Financial Ledger Entry</span>
+                    <div class="tag-popover">Monitored highly sensitive account transactions and billing profiles with absolute precision.</div>
+                </div>
+                <div class="skill-tag-wrapper" data-cat="ops">
+                    <span class="skill-tag">Pre-Sales Walkthroughs</span>
+                    <div class="tag-popover">Executed live solutions demonstrations mapping product architecture directly to warm client goals.</div>
+                </div>
+                <div class="skill-tag-wrapper" data-cat="ops">
+                    <span class="skill-tag">Data Integrity Management</span>
+                    <div class="tag-popover">Audited and cataloged extensive data records across complex organizational infrastructures.</div>
+                </div>
+            </div>
+
+            <div class="tool-logo-grid" style="margin-top: 50px;">
+                <a href="https://workspace.google.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-google-plain colored"></i>
+                        <span class="tool-name">Google Workspace</span>
+                        <div class="tag-popover">Administered shared corporate drive permission matrix and advanced inbox filters.</div>
+                    </div>
+                </a>
+                <a href="https://www.microsoft365.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-windows8-original colored"></i>
+                        <span class="tool-name">Microsoft 365</span>
+                        <div class="tag-popover">Built master trackers and financial summary structures via macro sheets.</div>
+                    </div>
+                </a>
+                <a href="https://calendly.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-matchbox-plain colored"></i>
+                        <span class="tool-name">Calendly</span>
+                        <div class="tag-popover">Automated lead routing parameters and embedded client scheduling fields.</div>
+                    </div>
+                </a>
+                <a href="https://slack.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-slack-plain colored"></i>
+                        <span class="tool-name">Slack</span>
+                        <div class="tag-popover">Set up specialized internal alert routing notifications and client channels.</div>
+                    </div>
+                </a>
+                <a href="https://discord.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-discord-plain colored"></i>
+                        <span class="tool-name">Discord</span>
+                        <div class="tag-popover">Managed community permissions and customized announcement pipelines.</div>
+                    </div>
+                </a>
+                <a href="https://www.larksuite.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-bullet-plain colored"></i>
+                        <span class="tool-name">Lark</span>
+                        <div class="tag-popover">Coordinated cross-border communication tables and task maps.</div>
+                    </div>
+                </a>
+                <a href="https://www.ringcentral.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-browser-plain colored"></i>
+                        <span class="tool-name">RingCentral</span>
+                        <div class="tag-popover">Supervised inbound client call matrices and customer voice routing priorities.</div>
+                    </div>
+                </a>
+                <a href="https://www.dialpad.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-technology-plain colored"></i>
+                        <span class="tool-name">Dialpad</span>
+                        <div class="tag-popover">Analyzed real-time customer sentiment indicators and communication logs.</div>
+                    </div>
+                </a>
+                <a href="https://aircall.io" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-matchbox-plain colored"></i>
+                        <span class="tool-name">Aircall</span>
+                        <div class="tag-popover">Integrated voice logs directly into central CRM file accounts.</div>
+                    </div>
+                </a>
+                <a href="https://www.cisco.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-ssh-plain colored"></i>
+                        <span class="tool-name">Cisco VPN</span>
+                        <div class="tag-popover">Secured endpoints for isolated, credential-protected network connections.</div>
+                    </div>
+                </a>
+                <a href="https://www.pipedrive.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-trello-plain colored"></i>
+                        <span class="tool-name">PipeDrive</span>
+                        <div class="tag-popover">Audited sales stage parameters and automated customer follow-up actions.</div>
+                    </div>
+                </a>
+                <a href="https://www.outsourceaccelerator.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-network-plain colored"></i>
+                        <span class="tool-name">Outsource Accel.</span>
+                        <div class="tag-popover">Aligned parameters with premium standard BPO infrastructure rules.</div>
+                    </div>
+                </a>
+                <a href="https://www.tcs.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-rocks-plain colored"></i>
+                        <span class="tool-name">TCS Platform</span>
+                        <div class="tag-popover">Coordinated enterprise support assets inside robust data system walls.</div>
+                    </div>
+                </a>
+                <a href="https://fptsoftware.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-code-plain colored"></i>
+                        <span class="tool-name">FPT Suite</span>
+                        <div class="tag-popover">Managed offshore administrative documentation tasks under structural frameworks.</div>
+                    </div>
+                </a>
+                <a href="https://www.nova.edu" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-book-plain colored"></i>
+                        <span class="tool-name">Nova Knowledge</span>
+                        <div class="tag-popover">Maintained central business learning bases and training logs.</div>
+                    </div>
+                </a>
+                <a href="#" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-browser-plain colored"></i>
+                        <span class="tool-name">Nova Air Care</span>
+                        <div class="tag-popover">Tracked localized customer dispatch sheets and service orders.</div>
+                    </div>
+                </a>
+                <a href="https://chatgpt.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-openai-plain colored"></i>
+                        <span class="tool-name">ChatGPT</span>
+                        <div class="tag-popover">Engineered custom communication prompt logic to scale message response output.</div>
+                    </div>
+                </a>
+                <a href="https://www.grammarly.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-matchbox-plain colored"></i>
+                        <span class="tool-name">Grammarly</span>
+                        <div class="tag-popover">Polished outward-facing customer copy to preserve professional standards.</div>
+                    </div>
+                </a>
+                <a href="https://www.teamviewer.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-chrome-plain colored"></i>
+                        <span class="tool-name">Team Viewer</span>
+                        <div class="tag-popover">Deployed secure remote utility adjustments and technical client support.</div>
+                    </div>
+                </a>
+                <a href="https://mercury.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-bank-plain colored"></i>
+                        <span class="tool-name">Mercury Banking</span>
+                        <div class="tag-popover">Audited corporate spending records and balanced payment processing metrics.</div>
+                    </div>
+                </a>
+                <a href="https://www.zendesk.com" target="_blank" class="logo-card-link" data-cat="tools">
+                    <div class="logo-card">
+                        <i class="devicon-zendesk-plain colored"></i>
+                        <span class="tool-name">Zendesk CRM</span>
+                        <div class="tag-popover">Architected complex macro logic strings, tags, and inbound ticket routing paths.</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section border-top">
+        <div class="container">
+            <div class="section-header">
+                <span class="index-num">// 03 //</span>
                 <h2>Professional Track Record</h2>
                 <div class="line"></div>
             </div>
             
             <div class="experience-list">
-                
-                <div class="card">
-                    <div class="card-header">
+                <div class="accordion-item active">
+                    <div class="accordion-header">
                         <div>
                             <h3>General Virtual Assistant</h3>
                             <span class="company">Fit Body Boot Camp</span>
                         </div>
-                        <span class="date-tag">Aug 2023 – May 2026</span>
+                        <div class="accordion-meta">
+                            <span class="date-tag">Aug 2023 – May 2026</span>
+                            <span class="arrow">▲</span>
+                        </div>
                     </div>
-                    <ul class="bullets">
-                        <li>Constructed, audited, and sustained high-volume customer scheduling loops, administrative workflows, and incoming lead acquisition channels.</li>
-                        <li>Managed highly sensitive digital financial ledgers comprising hundreds of member accounts, secure transaction refunds, and cancellation lifecycles with absolute structural accuracy.</li>
-                        <li>Synthesized daily high-stakes business performance metrics and data diagnostics into actionable executive summaries to directly optimize systemic business outputs.</li>
-                    </ul>
+                    <div class="accordion-content">
+                        <ul class="bullets">
+                            <li>Managed complex customer scheduling matrices, eliminating confirmation drop-offs across multiple locations.</li>
+                            <li>Maintained highly sensitive client transactional databases and billing parameters with flawless record accuracy.</li>
+                            <li>Executed extensive digital file optimization tracks, reorganizing unstructured data storage architectures.</li>
+                            <li>Triaged corporate executive inboxes, filtering priorities to maximize daily communication efficiency.</li>
+                            <li>Generated summary logs on internal performance indicators to keep leadership informed of bottleneck zones.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div>
+                            <h3>Pre-Sales Specialist</h3>
+                            <span class="company">Fit Body Boot Camp</span>
+                        </div>
+                        <div class="accordion-meta">
+                            <span class="date-tag">Aug 2023 – May 2026</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="bullets">
+                            <li>Conducted system walk-throughs for inbound prospects, mapping product capabilities to direct pain points.</li>
+                            <li>Audited and refined the central CRM pipeline pipeline stages, reducing lead drop-offs significantly.</li>
+                            <li>Prepared target solution outlines and functional parameters ahead of key discovery evaluation syncs.</li>
+                            <li>Handled account conversion transitions, ensuring onboarding information matched prospective sales metrics.</li>
+                            <li>Analyzed common technical concerns raised by prospects to help update product demonstration playbooks.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
                         <div>
                             <h3>Operations Manager</h3>
                             <span class="company">WJ Construction & Engr. Services</span>
                         </div>
-                        <span class="date-tag">Sept 2012 – Present</span>
+                        <div class="accordion-meta">
+                            <span class="date-tag">Sept 2012 – Present</span>
+                            <span class="arrow">▼</span>
+                        </div>
                     </div>
-                    <ul class="bullets">
-                        <li>Architected global daily company operations strategy, deploying multi-tier schedules and personnel logistics frameworks to guarantee enterprise milestones were executed on target.</li>
-                        <li>Oversaw core internal enterprise IT networks and server ecosystems, proactively diagnosing hardware/software conflicts and authoring training playbooks to scale internal tech literacy.</li>
-                    </ul>
+                    <div class="accordion-content">
+                        <ul class="bullets">
+                            <li>Designed high-stakes operational timeline models and material distribution metrics to keep projects on target.</li>
+                            <li>Authored complete company Standard Operating Procedure (SOP) playbooks to stabilize multi-tier execution.</li>
+                            <li>Supervised core internal system tools setup, software parameter access levels, and tech troubleshooting parameters.</li>
+                            <li>Coordinated cross-functional teams and field foremen to guarantee alignment on performance expectations.</li>
+                            <li>Audited historical expenditure logs and resource records to reduce waste across active timelines.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
+                <div class="accordion-item">
+                    <div class="accordion-header">
                         <div>
                             <h3>Customer Experience Coordinator</h3>
                             <span class="company">Inspiro</span>
                         </div>
-                        <span class="date-tag">Prior Operations Focus</span>
+                        <div class="accordion-meta">
+                            <span class="date-tag">Prior Systems Focus</span>
+                            <span class="arrow">▼</span>
+                        </div>
                     </div>
-                    <ul class="bullets">
-                        <li>Spearheaded multi-channel communication pipelines, resolving high-tier corporate customer requests while safeguarding brand loyalty metrics.</li>
-                        <li>Partnered directly with technical management groups to translate real-world client feedback into immediate user-interface and software workflow updates.</li>
-                    </ul>
+                    <div class="accordion-content">
+                        <ul class="bullets">
+                            <li>Spearheaded multi-channel inbound customer support queues, resolving escalated cases to maintain retention.</li>
+                            <li>Mapped recurring structural software friction points and provided direct feedback logs to technical teams.</li>
+                            <li>Trained team groups on advanced platform support systems to shorten account ticket answer times.</li>
+                            <li>Maintained strict adherence to client communication data privacy rules across global network boundaries.</li>
+                            <li>Optimized tracking logs inside customer profiles to give support teams comprehensive case histories.</li>
+                        </ul>
+                    </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="services" class="section">
+    <section id="references" class="section border-top bg-noir">
         <div class="container">
             <div class="section-header">
-                <h2>Solutions Ready for Deployment</h2>
+                <span class="index-num">// 04 //</span>
+                <h2>Character References</h2>
                 <div class="line"></div>
             </div>
-            <div class="services-grid">
-                <div class="service-box">
-                    <h4>Operations Standardisation</h4>
-                    <p>Turning loose team playbooks into automated tracking boards and foolproof SOP documents that eliminate operational dependency on your time.</p>
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <p class="quote">"Japhette's operational accuracy is unmatched. Having collaborated on complex client communications, his ability to manage data tracking frameworks and resolve support blockers ensures complete clarity across systems."</p>
+                    <span class="author">// Melissa Ofrecio</span>
+                    <span class="ref-role">Customer Service Representative – Outdoorsy</span>
+                    <span class="ref-contact">📞 09471473488 | ✉ melissaromelle.ofrecio@gmail.com</span>
                 </div>
-                <div class="service-box">
-                    <h4>Technical System Maintenance</h4>
-                    <p>Managing system migrations, safeguarding data entry protocols, maintaining internal software infrastructures, and resolving system logic gaps.</p>
+                <div class="testimonial-card">
+                    <p class="quote">"An absolute expert in platform organization and systemic efficiency. Japhette approaches automation and analytical record maintenance with a sharp logic that optimizes team delivery timelines."</p>
+                    <span class="author">// Johmar Llonor</span>
+                    <span class="ref-role">Amazon PPC Specialist & Marketplace Analyst – Sicuro Brands LLC</span>
+                    <span class="ref-contact">📞 09054534650 | ✉ johmar.llonor@gmail.com</span>
                 </div>
-                <div class="service-box">
-                    <h4>Executive VA Administration</h4>
-                    <p>High-level financial entry management, dashboard maintenance, executive calendar scheduling, and structured reporting pipelines.</p>
+                <div class="testimonial-card">
+                    <p class="quote">"Japhette possesses rare strategic leadership and operational focus. From drafting comprehensive SOP manuals to tracking software resources, he guarantees every project delivers on targets."</p>
+                    <span class="author">// Mark Anthony Millare</span>
+                    <span class="ref-role">Site Manager – HGW=3 Engineering & Construction</span>
+                    <span class="ref-contact">✉ markanthonymuico1330@gmail.com</span>
                 </div>
             </div>
         </div>
@@ -156,18 +471,151 @@
 
     <section id="contact" class="section contact-section">
         <div class="container text-center">
-            <h2>Let's Scale Your Business Architecture</h2>
-            <p>I am currently open to new operational partnerships, system design projects, and high-level technical virtual support agreements.</p>
-            <a href="mailto:your.email@example.com" class="btn-primary btn-large">Initiate Operational Strategy Talk</a>
+            <h2 class="brutalist-contact-title">INITIATE_DEPLOYMENT</h2>
+            <p>Ready to clear your operational back-office friction? Connect immediately through secure lines:</p>
+            
+            <div class="contact-box-grid">
+                <a href="viber://chat?number=%2B639569027896" class="c-box-link" title="Launch Viber Direct Chat">
+                    <div class="c-box interactive-box"><span>VIBER:</span> 09569027896 <span class="redirect-arrow">↗</span></div>
+                </a>
+                <a href="mailto:japhettepulido05@gmail.com" class="c-box-link">
+                    <div class="c-box interactive-box"><span>EMAIL:</span> japhettepulido05@gmail.com <span class="redirect-arrow">↗</span></div>
+                </a>
+                <div class="c-box"><span>PHONE:</span> +63 977 174 1861</div>
+                <div class="c-box"><span>GEO_LOC:</span> Philippines [GMT+8]</div>
+            </div>
+            
+            <a href="mailto:japhettepulido05@gmail.com" class="btn-primary btn-large" style="margin-top: 40px;">Transmit Secure Message</a>
         </div>
     </section>
 
     <footer>
         <div class="container footer-flex">
-            <p>&copy; 2026 Japhette. All rights reserved.</p>
-            <p class="footer-sub">Optimized for Enterprise Deployment</p>
+            <p>&copy; 2026 JAPHETTE PULIDO. ALL RIGHTS RESERVED.</p>
+            <p class="footer-sub">THEME: MINIMAL_NOIR_HYPER_DANO</p>
         </div>
     </footer>
 
+    <script>
+        // 1. Monospace Text Typing Loop Engine
+        const typeTarget = document.getElementById('typewriter');
+        const phrases = ["solutions_pipeline_ready...", "optimizing data ledgers...", "awaiting operational deployment..."];
+        let phraseIdx = 0, charIdx = 0, isDeleting = false;
+
+        function typeLoop() {
+            const currentPhrase = phrases[phraseIdx];
+            if (isDeleting) {
+                typeTarget.innerText = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                typeTarget.innerText = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 30 : 60;
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            setTimeout(typeLoop, typeSpeed);
+        }
+        document.addEventListener("DOMContentLoaded", () => setTimeout(typeLoop, 1000));
+
+        // 2. Audio Ambiance Engine
+        const audio = document.getElementById('ambientTrack');
+        const audioBtn = document.getElementById('audioBtn');
+        const audioIcon = audioBtn.querySelector('.audio-icon');
+        const audioText = audioBtn.querySelector('.audio-text');
+
+        audioBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().catch(e => console.log("Ambiance blocked until interaction profile matches"));
+                audioIcon.innerText = "■";
+                audioText.innerText = "MUTE AUDIO";
+                audioBtn.classList.add('playing');
+            } else {
+                audio.pause();
+                audioIcon.innerText = "▶";
+                audioText.innerText = "PLAY AMBIENCE";
+                audioBtn.classList.remove('playing');
+            }
+        });
+
+        // 3. Rolling Performance Counters Intersector
+        const counters = document.querySelectorAll('.metric-num');
+        const observerOptions = { threshold: 0.1 };
+        
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const speed = target / 35;
+                    
+                    const updateCount = () => {
+                        const count = +counter.innerText.replace(/,/g, '');
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + speed).toLocaleString();
+                            setTimeout(updateCount, 25);
+                        } else {
+                            counter.innerText = target.toLocaleString();
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+        counters.forEach(c => counterObserver.observe(c));
+
+        // 4. Matrix Categories Filter Interface
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const elementsToFilter = document.querySelectorAll('.skill-tag-wrapper, .logo-card-link');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                
+                elementsToFilter.forEach(el => {
+                    if (filterValue === 'all' || el.getAttribute('data-cat') === filterValue) {
+                        el.style.display = 'inline-block';
+                        setTimeout(() => el.style.opacity = '1', 10);
+                    } else {
+                        el.style.opacity = '0';
+                        setTimeout(() => el.style.display = 'none', 150);
+                    }
+                });
+            });
+        });
+
+        // 5. Accordion Card Controls
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const arrow = item.querySelector('.arrow');
+            
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                accordionItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.arrow').innerText = '▼';
+                });
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                    arrow.innerText = '▲';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
