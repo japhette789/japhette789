@@ -12,10 +12,11 @@ gsap.ticker.lagSmoothing(0);
 // Global State Parameters
 let isCinematic = false;
 const audioTrack = document.getElementById('ambientTrack');
-// Faint, comfortable audio level mix to safeguard background consistency
-audioTrack.volume = 0.05; 
+if(audioTrack) {
+    audioTrack.volume = 0.05; // Set low background volume mix
+}
 
-// Initial Mode Selection Pathways
+// Fixed Entry Gate Click Hooks to prevent screen lockups
 document.getElementById('engageCinematicBtn').addEventListener('click', () => {
     isCinematic = true;
     document.body.classList.remove('lights-on');
@@ -29,25 +30,30 @@ document.getElementById('skipIntroBtn').addEventListener('click', () => {
 });
 
 function initializePortfolio() {
-    // Smooth Gate Dismissal Sequence
-    gsap.to('#introGate', {
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-        onComplete: () => {
-            document.getElementById('introGate').style.display = 'none';
-            startHeroTypewriter();
-            if (isCinematic) {
-                playAudioSequence();
+    // Instantly remove pointer events so the screen is clickable right away
+    const gate = document.getElementById('introGate');
+    if (gate) {
+        gate.style.pointerEvents = 'none';
+        
+        gsap.to(gate, {
+            opacity: 0,
+            duration: 0.5,
+            ease: 'power2.out',
+            onComplete: () => {
+                gate.style.display = 'none';
+                startHeroTypewriter();
+                if (isCinematic) {
+                    playAudioSequence();
+                }
             }
-        }
-    });
+        });
+    }
 }
 
 // Interactive Spotlight Control Matrix
 const spotlight = document.getElementById('spotlight');
 window.addEventListener('mousemove', (e) => {
-    if (!isCinematic) return;
+    if (!isCinematic || !spotlight) return;
     gsap.to(spotlight, {
         left: e.clientX,
         top: e.clientY,
@@ -61,27 +67,33 @@ const widget = document.getElementById('musicWidget');
 const toggleBtn = document.getElementById('widgetToggleBtn');
 
 function playAudioSequence() {
+    if(!audioTrack) return;
     audioTrack.play().then(() => {
-        widget.classList.add('playing');
-        toggleBtn.innerText = 'MUTE';
-        document.querySelector('.track-status').innerText = 'LOOP ACTIVE';
-    }).catch(err => console.log("Audio trigger pending interaction execution framework."));
+        if(widget) widget.classList.add('playing');
+        if(toggleBtn) toggleBtn.innerText = 'MUTE';
+        const status = document.querySelector('.track-status');
+        if(status) status.innerText = 'LOOP ACTIVE';
+    }).catch(err => console.log("Audio waiting for user interaction."));
 }
 
 function pauseAudioSequence() {
+    if(!audioTrack) return;
     audioTrack.pause();
-    widget.classList.remove('playing');
-    toggleBtn.innerText = 'PLAY';
-    document.querySelector('.track-status').innerText = 'SYSTEM IDLE';
+    if(widget) widget.classList.remove('playing');
+    if(toggleBtn) toggleBtn.innerText = 'PLAY';
+    const status = document.querySelector('.track-status');
+    if(status) status.innerText = 'SYSTEM IDLE';
 }
 
-toggleBtn.addEventListener('click', () => {
-    if (audioTrack.paused) {
-        playAudioSequence();
-    } else {
-        pauseAudioSequence();
-    }
-});
+if(toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+        if (audioTrack.paused) {
+            playAudioSequence();
+        } else {
+            pauseAudioSequence();
+        }
+    });
+}
 
 // Typewriter Execution Engine
 function startHeroTypewriter() {
@@ -93,8 +105,10 @@ function startHeroTypewriter() {
     let lineIdx = 0;
     let charIdx = 0;
     const targetNode = document.getElementById('typewriter');
+    if(!targetNode) return;
     
     function type() {
+        if (!targetNode) return;
         if (charIdx < lines[lineIdx].length) {
             targetNode.textContent += lines[lineIdx].charAt(charIdx);
             charIdx++;
@@ -105,6 +119,7 @@ function startHeroTypewriter() {
     }
     
     function erase() {
+        if (!targetNode) return;
         if (charIdx > 0) {
             targetNode.textContent = lines[lineIdx].substring(0, charIdx - 1);
             charIdx--;
@@ -131,7 +146,7 @@ filterBtns.forEach(btn => {
             const cat = card.getAttribute('data-cat');
             if (filterVal === 'all' || cat === filterVal) {
                 gsap.to(card, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
-                card.style.display = 'block';
+                card.style.style.display = 'block';
             } else {
                 gsap.to(card, { opacity: 0, scale: 0.95, duration: 0.3, ease: 'power2.in' });
                 setTimeout(() => { card.style.display = 'none'; }, 300);
@@ -144,23 +159,27 @@ filterBtns.forEach(btn => {
 const accordions = document.querySelectorAll('.accordion-item');
 accordions.forEach(item => {
     const header = item.querySelector('.accordion-header');
-    header.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        
-        accordions.forEach(acc => {
-            acc.classList.remove('active');
-            acc.querySelector('.arrow').innerText = '▼';
-            const content = acc.querySelector('.accordion-content');
-            gsap.to(content, { height: 0, duration: 0.4, ease: 'power2.inOut' });
+    if(header) {
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            accordions.forEach(acc => {
+                acc.classList.remove('active');
+                const arrow = acc.querySelector('.arrow');
+                if(arrow) arrow.innerText = '▼';
+                const content = acc.querySelector('.accordion-content');
+                if(content) gsap.to(content, { height: 0, duration: 0.4, ease: 'power2.inOut' });
+            });
+            
+            if (!isActive) {
+                item.classList.add('active');
+                const arrow = item.querySelector('.arrow');
+                if(arrow) arrow.innerText = '▲';
+                const content = item.querySelector('.accordion-content');
+                if(content) gsap.to(content, { height: 'auto', duration: 0.5, ease: 'power2.out' });
+            }
         });
-        
-        if (!isActive) {
-            item.classList.add('active');
-            item.querySelector('.arrow').innerText = '▲';
-            const content = item.querySelector('.accordion-content');
-            gsap.to(content, { height: 'auto', duration: 0.5, ease: 'power2.out' });
-        }
-    });
+    }
 });
 
 // Premium Magnetic Button Interface Enhancements
