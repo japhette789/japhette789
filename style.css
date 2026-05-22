@@ -151,7 +151,7 @@ body.lights-off .spotlight { opacity: 1; }
 .widget-toggle:hover { background: #fff; color: #000; }
 
 /* Structural Platform UI Action Buttons */
-.btn-primary, .btn-secondary, .btn-secret, .btn-nav {
+.btn-primary, .btn-secondary, .btn-nav {
     display: inline-block; padding: 16px 32px; border-radius: 4px;
     text-decoration: none; font-family: 'Share Tech Mono', monospace;
     font-size: 0.85rem; text-transform: uppercase; border: none; cursor: pointer;
@@ -160,13 +160,11 @@ body.lights-off .spotlight { opacity: 1; }
 .btn-primary { background: var(--text-pure); color: var(--bg-darker); font-weight: 700; }
 .btn-secondary { color: var(--text-pure); background: transparent; border: 1px solid var(--border-bold); margin-left: 10px; }
 .btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: var(--text-pure); }
-.btn-secret { background: #ce2121; color: #ffffff; font-weight: 700; margin-left: 10px; border-radius: 4px; box-shadow: 0 4px 15px rgba(206,33,33,0.3); }
-.btn-secret:hover { background: #ff3333; transform: scale(1.03); }
 .btn-nav { padding: 8px 16px; background: transparent; border: 1px solid var(--border-bold); color: var(--text-pure); }
 
 /* Monospace Text Display Header Workspace */
 .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 120px; }
-.hero-container { max-width: 1050px; text-align: center; margin: 0 auto; }
+.hero-container { max-width: 1150px; text-align: center; margin: 0 auto; }
 
 .terminal-card {
     border-radius: 4px; text-align: left; max-width: 550px; margin: 0 auto 50px auto;
@@ -181,12 +179,25 @@ body.lights-off .spotlight { opacity: 1; }
 .typing-cursor { border-right: 2px solid var(--text-pure); animation: blink 0.8s infinite; }
 
 .hero-badge { font-family: 'Share Tech Mono', monospace; color: var(--text-muted); font-size: 0.9rem; display: inline-block; margin-bottom: 15px; letter-spacing: 2px; }
-.editorial-title { font-family: 'Bebas Neue', sans-serif; font-size: 6rem; line-height: 0.95; letter-spacing: 1px; margin-bottom: 25px; }
+.editorial-title { font-family: 'Bebas Neue', sans-serif; font-size: 6.5rem; line-height: 0.9; letter-spacing: -1px; margin-bottom: 25px; }
 .glow-txt { color: var(--text-pure); text-shadow: 0 0 30px var(--glow-strength); }
-.hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 780px; margin: 0 auto 40px auto; font-weight: 400; }
+.hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 820px; margin: 0 auto 40px auto; font-weight: 400; }
+
+/* Section 7: Modern Editorial "What I Do" Strip Layout */
+.what-i-do-strip {
+    background: #000; border-top: 1px solid var(--border-dim); border-bottom: 1px solid var(--border-dim);
+    padding: 40px 0; overflow: hidden;
+}
+.strip-container {
+    max-width: 1300px; margin: 0 auto; padding: 0 45px;
+    display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap;
+}
+.strip-item { flex: 1; min-width: 220px; }
+.strip-label { font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; color: var(--text-muted); display: block; letter-spacing: 1px; }
+.strip-item h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.5px; margin-top: 4px; }
 
 /* Numerical Metric Layout Panels */
-.metrics-section { padding: 60px 0; background: #000000; border-top: 1px solid var(--border-dim); border-bottom: 1px solid var(--border-dim); }
+.metrics-section { padding: 60px 0; background: #000000; border-bottom: 1px solid var(--border-dim); }
 .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px 20px; text-align: center; }
 .num-wrapper { display: inline-flex; align-items: baseline; justify-content: center; }
 .metric-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--text-pure); line-height: 1; }
@@ -218,25 +229,25 @@ body.lights-off .spotlight { opacity: 1; }
 .tag-grid { display: flex; flex-wrap: wrap; gap: 10px; }
 .skill-tag { display: inline-block; background: var(--bg-card); border: 1px solid var(--border-bold); color: var(--text-pure); padding: 12px 20px; font-size: 0.88rem; font-weight: 600; border-radius: 4px; }
 
-/* Interactive Stack Grid with Hover Explainers */
+/* Interactive Stack Grid with Slide-Up Contextual Tooltips */
 .tool-logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
 .logo-card { 
-    padding: 30px 20px; text-align: center; border-radius: 4px; 
+    padding: 35px 20px; text-align: center; border-radius: 4px; 
     display: flex; flex-direction: column; align-items: center; gap: 12px; 
-    min-height: 140px; justify-content: center; position: relative; overflow: hidden;
+    min-height: 150px; justify-content: center; position: relative; overflow: hidden;
     transition: border-color 0.4s ease, background-color 0.4s ease;
 }
-.logo-card i { font-size: 2.2rem; color: var(--text-pure); opacity: 0.85; transition: opacity 0.3s ease; }
+.logo-card i { font-size: 2.4rem; color: var(--text-pure); opacity: 0.85; transition: opacity 0.3s ease; }
 .tool-name { font-family: 'Share Tech Mono', monospace; font-size: 0.88rem; color: var(--text-pure); font-weight: 600; z-index: 2; }
 
-/* Hidden Hover explainer popup */
+/* Absolute Overlay Hover Hint Explainer Card System */
 .tool-hint {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: #ffffff; color: #000000; font-size: 0.78rem; font-weight: 600;
-    padding: 15px; display: flex; align-items: center; justify-content: center;
+    background: #ffffff; color: #000000; font-size: 0.8rem; font-weight: 500;
+    padding: 16px; display: flex; align-items: center; justify-content: center;
     text-align: left; opacity: 0; pointer-events: none; z-index: 5;
     transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    line-height: 1.4; font-family: 'Inter', sans-serif;
+    line-height: 1.45; font-family: 'Inter', sans-serif;
 }
 .logo-card:hover { border-color: var(--text-pure); }
 .logo-card:hover .tool-hint { opacity: 1; }
@@ -276,7 +287,6 @@ body.lights-off .spotlight { opacity: 1; }
 }
 .form-group input:focus, .form-group textarea:focus { border-color: var(--text-pure); outline: none; background: rgba(0,0,0,0.5); }
 .form-submit-btn { width: 100%; text-align: center; margin-top: 10px; border-radius: 4px; font-weight: 700; }
-.form-submit-btn:hover { background: #e4e4e7; transform: translateY(-2px); }
 
 .contact-box-grid { display: flex; flex-direction: column; gap: 12px; font-family: 'Share Tech Mono', monospace; }
 .c-box-link { text-decoration: none; color: inherit; }
@@ -285,6 +295,10 @@ body.lights-off .spotlight { opacity: 1; }
 .interactive-box:hover { border-color: var(--text-pure); background: rgba(255,255,255,0.03); }
 .redirect-arrow { float: right; color: var(--text-muted); }
 .interactive-box:hover .redirect-arrow { color: var(--text-pure); }
+
+/* Section 8: Large Screen Editorial Closing Statement Segment */
+.closing-statement-banner { padding: 100px 0; background: #000; border-top: 1px solid var(--border-dim); }
+.closing-quote { font-family: 'Bebas Neue', sans-serif; font-size: 3.2rem; letter-spacing: 0.5px; color: var(--text-pure); max-width: 900px; margin: 0 auto; line-height: 1.1; }
 
 footer { background: #000000; color: #6e6e77; padding: 40px 0; font-size: 0.8rem; border-top: 1px solid var(--border-dim); font-family: 'Share Tech Mono', monospace; }
 .footer-flex { display: flex; justify-content: space-between; align-items: center; }
@@ -306,7 +320,7 @@ footer { background: #000000; color: #6e6e77; padding: 40px 0; font-size: 0.8rem
 }
 @media (max-width: 768px) {
     .grid-5 { grid-template-columns: repeat(2, 1fr); }
-    .brutalist-contact-title { font-size: 3.2rem; }
+    .brutalist-contact-title, .closing-quote { font-size: 2.8rem; }
     .accordion-header { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
     .accordion-item.active .accordion-content { padding: 10px 20px 25px 20px; }
     .nav-links { display: none; }
