@@ -1,4 +1,4 @@
-/* Custom Premium Editorial Noir Variable Registers */
+/* Editorial Noir CSS Custom Property Register */
 :root {
     --bg-darker: #000000;
     --bg-main: #060608;       
@@ -17,7 +17,7 @@
 }
 
 html {
-    scroll-behavior: initial; /* Handled directly by Lenis Smooth Scroll Engine */
+    scroll-behavior: initial; /* Controlled directly by Lenis engine hook */
     background-color: var(--bg-darker);
 }
 
@@ -31,13 +31,11 @@ body {
     transition: background-color 1.2s ease, color 1.2s ease;
 }
 
-/* Lights Configurations Toggles */
 body.lights-off {
     --bg-main: #020203;
     --text-muted: #44444a;
 }
 
-/* Premium Glassmorphism Class Blueprint */
 .glass {
     background: rgba(10, 10, 12, 0.45);
     backdrop-filter: blur(16px);
@@ -45,7 +43,7 @@ body.lights-off {
     border: 1px solid var(--border-dim);
 }
 
-/* Cinematic Atmospheric Layers */
+/* Atmospheric Texture Layering */
 .film-grain {
     position: fixed;
     top: -50%; left: -50%; width: 200%; height: 200%;
@@ -67,7 +65,6 @@ body.lights-off {
     pointer-events: none;
 }
 
-/* Spotlight Follow Mesh Layer */
 .spotlight {
     position: fixed;
     width: 500px;
@@ -95,7 +92,7 @@ body.lights-off .spotlight { opacity: 1; }
 .border-top { border-top: 1px solid var(--border-dim); }
 .text-center { text-align: center; }
 
-/* Fullscreen Handshake Intro Gate */
+/* Initialization Entrance Interface */
 .intro-gate {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -104,12 +101,13 @@ body.lights-off .spotlight { opacity: 1; }
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer; /* Cue indicating fallback safety tap anywhere */
 }
-.intro-content { max-width: 600px; padding: 40px; text-align: center; }
+.intro-content { max-width: 600px; padding: 40px; text-align: center; pointer-events: auto; }
 .intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 1px; line-height: 0.95; margin: 15px 0; }
 .intro-sub { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; }
 
-/* Fixed Navbar Architecture */
+/* Fixed Structural Navbar Navigation */
 .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
@@ -133,7 +131,7 @@ body.lights-off .spotlight { opacity: 1; }
 }
 .nav-links a:hover { color: var(--text-pure); }
 
-/* Floating Cinematic Sound Node Controller Widget */
+/* Floating Tracker Music Node Controller Widget */
 .music-widget {
     position: fixed; bottom: 30px; left: 45px; padding: 12px 20px;
     display: flex; align-items: center; gap: 14px; border-radius: 4px;
@@ -152,7 +150,7 @@ body.lights-off .spotlight { opacity: 1; }
 .widget-toggle { background: transparent; border: 1px solid var(--border-bold); color: #fff; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; padding: 4px 10px; cursor: pointer; border-radius: 2px; }
 .widget-toggle:hover { background: #fff; color: #000; }
 
-/* Buttons & Navigation Anchors */
+/* Structural Action Buttons */
 .btn-primary, .btn-secondary, .btn-nav {
     display: inline-block; padding: 16px 36px; border-radius: 0px;
     text-decoration: none; font-family: 'Share Tech Mono', monospace;
@@ -162,7 +160,7 @@ body.lights-off .spotlight { opacity: 1; }
 .btn-secondary { color: var(--text-pure); background: transparent; border: 1px solid var(--border-bold); margin-left: 14px; }
 .btn-nav { padding: 6px 14px; background: transparent; border: 1px solid var(--border-dim); color: var(--text-pure); font-size: 0.8rem; }
 
-/* Editorial Hero Framework Configurations */
+/* System Handshake Terminal & Hero Section Typography */
 .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 100px; }
 .hero-container { max-width: 1050px; text-align: center; margin: 0 auto; }
 
@@ -184,21 +182,22 @@ body.lights-off .spotlight { opacity: 1; }
 .glow-txt { color: var(--text-pure); text-shadow: 0 0 30px var(--glow-strength); }
 .hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 780px; margin: 0 auto 45px auto; font-weight: 300; }
 
-/* 10-Item Statistics Dashboard Layout Grid */
+/* System Data Panel Performance Counter Blocks */
 .metrics-section { padding: 80px 0; background: #000000; border-top: 1px solid var(--border-dim); border-bottom: 1px solid var(--border-dim); }
 .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px 20px; text-align: center; }
+.num-wrapper { display: inline-flex; align-items: baseline; justify-content: center; }
 .metric-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--text-pure); line-height: 1; }
-.plus { font-size: 1.4rem; color: var(--text-muted); font-weight: 300; vertical-align: top; }
+.plus { font-size: 1.4rem; color: var(--text-muted); font-weight: 300; margin-left: 2px; }
 .metric-title { display: block; font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; margin-top: 10px; line-height: 1.4; letter-spacing: 0.5px; }
 
-/* Split Editorial About Narrative Profile Block */
+/* Sticky Side-by-Side Content Blocks */
 .grid-2 { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; }
 .narrative-sticky { position: relative; }
 .editorial-sub-title { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 0.95; margin-top: 10px; }
 .large-paragraph { font-size: 1.6rem; font-weight: 300; line-height: 1.4; color: var(--text-pure); margin-bottom: 30px; letter-spacing: -0.5px; }
 .standard-paragraph { font-size: 1.05rem; color: var(--text-muted); font-weight: 400; line-height: 1.7; }
 
-/* Capability Grid Matrices Modules */
+/* Grid Interface Display Channels */
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
 .section-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 1px; line-height: 1; }
 .section-header .line { width: 50px; height: 2px; background: var(--text-pure); margin-top: 15px; }
@@ -210,7 +209,7 @@ body.lights-off .spotlight { opacity: 1; }
 .service-card h3 { font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
 .service-card p { color: var(--text-muted); font-size: 0.95rem; font-weight: 300; }
 
-/* Advanced Skills Framework Blocks with Floating Microtooltips */
+/* Interactive Category Filter Controllers */
 .filter-controls { display: flex; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
 .filter-btn { background: transparent; border: 1px solid var(--border-bold); color: var(--text-pure); padding: 10px 22px; font-family: 'Share Tech Mono', monospace; font-size: 0.78rem; cursor: pointer; }
 .filter-btn.active { background: var(--text-pure); color: var(--bg-darker); font-weight: 700; border-color: var(--text-pure); }
@@ -230,17 +229,17 @@ body.lights-off .spotlight { opacity: 1; }
 .skill-tag-wrapper:hover .tag-popover, .logo-card-link:hover .tag-popover { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
 .skill-tag-wrapper:hover .skill-tag { border-color: var(--text-pure); }
 
-/* Software Integration Brand Grid Framework */
+/* Integration Ecosystem Vector Brands Grid Layout */
 .tool-logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
 .logo-card-link { text-decoration: none; color: inherit; display: inline-block; }
 .logo-card { padding: 30px 20px; text-align: center; border-radius: 2px; display: flex; flex-direction: column; align-items: center; gap: 14px; height: 100%; min-height: 130px; justify-content: center; }
-.logo-card i { font-size: 2.2rem; filter: grayscale(100%); opacity: 0.5; transition: all 0.4s ease; }
+.logo-card i { font-size: 2.2rem; opacity: 0.4; color: var(--text-pure); transition: all 0.4s ease; }
 .tool-name { font-family: 'Share Tech Mono', monospace; font-size: 0.82rem; color: var(--text-muted); }
 
 .logo-card-link:hover .logo-card { border-color: var(--text-pure); background: rgba(255,255,255,0.01); }
-.logo-card-link:hover i { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+.logo-card-link:hover i { opacity: 1; transform: scale(1.08); text-shadow: 0 0 15px rgba(255,255,255,0.4); }
 
-/* Storytelling Track Accodion Framework */
+/* Case Storytelling Work Accordion Panels Layout */
 .experience-list { display: flex; flex-direction: column; gap: 20px; }
 .accordion-item { background: var(--bg-card); border: 1px solid var(--border-dim); border-radius: 2px; }
 .accordion-header { padding: 30px 45px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
@@ -249,12 +248,11 @@ body.lights-off .spotlight { opacity: 1; }
 .accordion-meta { display: flex; align-items: center; gap: 25px; }
 .date-tag { font-family: 'Share Tech Mono', monospace; font-size: 0.78rem; padding: 5px 12px; border: 1px solid var(--border-bold); }
 .arrow { font-size: 0.8rem; color: var(--text-muted); }
-.accordion-content { max-height: 0; padding: 0 45px; opacity: 0; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); visibility: hidden; }
+.accordion-content { max-height: 0; padding: 0 45px; opacity: 0; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); visibility: hidden; overflow: hidden; }
 
 .accordion-item.active { border-color: var(--text-pure); }
 .accordion-item.active .accordion-content { max-height: 800px; padding: 15px 45px 45px 45px; opacity: 1; visibility: visible; }
 
-/* In-Line Storyteller Layout blocks */
 .project-storyteller { margin-bottom: 25px; border-left: 2px solid var(--text-pure); padding-left: 20px; }
 .story-block { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 8px; font-weight: 300; }
 .story-block strong { color: var(--text-pure); font-family: 'Share Tech Mono', monospace; font-size: 0.82rem; text-transform: uppercase; margin-right: 6px; }
@@ -262,13 +260,13 @@ body.lights-off .spotlight { opacity: 1; }
 .bullets { padding-left: 20px; }
 .bullets li { margin-bottom: 12px; color: var(--text-muted); font-size: 0.98rem; font-weight: 300; }
 
-/* Character References Block Profiles */
+/* Testimonials Block Elements Mapping */
 .quote { font-style: italic; color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 25px; font-weight: 300; }
 .author { font-family: 'Share Tech Mono', monospace; font-size: 0.9rem; color: var(--text-pure); display: block; font-weight: 700; }
 .ref-role { display: block; font-size: 0.82rem; color: var(--text-pure); font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
 .ref-contact { display: block; font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; color: var(--text-muted); margin-top: 10px; }
 
-/* Brutalist Unified Layout Contact Block Cards */
+/* Brutalist Block Contact Framework Layout */
 .contact-section { background: #000000; border-top: 1px solid var(--border-dim); }
 .brutalist-contact-title { font-family: 'Bebas Neue', sans-serif; font-size: 5.5rem; letter-spacing: 1px; line-height: 0.9; margin: 15px 0 20px 0; }
 .contact-box-grid { display: flex; flex-direction: column; gap: 14px; max-width: 600px; margin: 0 auto; text-align: left; font-family: 'Share Tech Mono', monospace; }
@@ -280,11 +278,11 @@ body.lights-off .spotlight { opacity: 1; }
 .redirect-arrow { float: right; color: var(--text-muted); }
 .interactive-box:hover .redirect-arrow { color: var(--text-pure); }
 
-/* Editorial Structural Footer Profiles */
+/* Base Platform Editorial Structural Footers */
 footer { background: #000000; color: #44444a; padding: 50px 0; font-size: 0.78rem; border-top: 1px solid var(--border-dim); font-family: 'Share Tech Mono', monospace; }
 .footer-flex { display: flex; justify-content: space-between; align-items: center; }
 
-/* Core System Keyframes Animation Maps */
+/* Micro-Engine Motion Keyframe Map Layouts */
 @keyframes grainShift {
     0%, 100% { transform:translate(0, 0); }
     10% { transform:translate(-5%, -5%); }
