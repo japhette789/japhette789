@@ -5,7 +5,7 @@
     --border-dim: rgba(255, 255, 255, 0.08);
     --border-bold: rgba(255, 255, 255, 0.2);
     --text-pure: #ffffff;     
-    --text-muted: #a0a0ab;    /* Lightened up significantly for clear readability */
+    --text-muted: #a0a0ab;    
     --glow-strength: rgba(255, 255, 255, 0.2);
 }
 
@@ -33,7 +33,7 @@ body {
 body.lights-off {
     --bg-main: #050507;
     --bg-card: rgba(14, 14, 18, 0.85);
-    --text-muted: #bbbbc4; /* Enhanced contrast readability during Cinematic Mode activation */
+    --text-muted: #bbbbc4; 
     --border-dim: rgba(255, 255, 255, 0.12);
 }
 
@@ -117,7 +117,7 @@ body.lights-off .spotlight { opacity: 1; }
     z-index: 1000;
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 20px 45px; }
-.logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; text-decoration: none; color: var(--text-pure); letter-spacing: 1px; }
+.logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; text-decoration: none; color: var(--text-pure); letter-spacing: 1px; }
 .logo .dot { color: var(--text-muted); }
 
 .nav-links { display: flex; list-style: none; align-items: center; }
@@ -218,13 +218,28 @@ body.lights-off .spotlight { opacity: 1; }
 .tag-grid { display: flex; flex-wrap: wrap; gap: 10px; }
 .skill-tag { display: inline-block; background: var(--bg-card); border: 1px solid var(--border-bold); color: var(--text-pure); padding: 12px 20px; font-size: 0.88rem; font-weight: 600; border-radius: 4px; }
 
-/* Ecosystem Platform Architecture Cards Grid */
-.tool-logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
-.logo-card-link { text-decoration: none; color: inherit; }
-.logo-card { padding: 25px 20px; text-align: center; border-radius: 4px; display: flex; flex-direction: column; align-items: center; gap: 12px; min-height: 110px; justify-content: center; }
-.logo-card i { font-size: 2rem; color: var(--text-pure); opacity: 0.7; }
-.tool-name { font-family: 'Share Tech Mono', monospace; font-size: 0.82rem; color: var(--text-pure); font-weight: 600; }
-.logo-card-link:hover .logo-card { border-color: var(--text-pure); background: rgba(255,255,255,0.03); }
+/* Interactive Stack Grid with Hover Explainers */
+.tool-logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.logo-card { 
+    padding: 30px 20px; text-align: center; border-radius: 4px; 
+    display: flex; flex-direction: column; align-items: center; gap: 12px; 
+    min-height: 140px; justify-content: center; position: relative; overflow: hidden;
+    transition: border-color 0.4s ease, background-color 0.4s ease;
+}
+.logo-card i { font-size: 2.2rem; color: var(--text-pure); opacity: 0.85; transition: opacity 0.3s ease; }
+.tool-name { font-family: 'Share Tech Mono', monospace; font-size: 0.88rem; color: var(--text-pure); font-weight: 600; z-index: 2; }
+
+/* Hidden Hover explainer popup */
+.tool-hint {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: #ffffff; color: #000000; font-size: 0.78rem; font-weight: 600;
+    padding: 15px; display: flex; align-items: center; justify-content: center;
+    text-align: left; opacity: 0; pointer-events: none; z-index: 5;
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    line-height: 1.4; font-family: 'Inter', sans-serif;
+}
+.logo-card:hover { border-color: var(--text-pure); }
+.logo-card:hover .tool-hint { opacity: 1; }
 
 /* Accordion Component Design Pattern */
 .experience-list { display: flex; flex-direction: column; gap: 16px; }
