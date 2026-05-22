@@ -132,7 +132,7 @@ function startHeroTypewriter() {
     type();
 }
 
-// Platform Tag Grid Filter Calculations
+// Platform Tag Grid Filter Calculations (Fixed syntax bug here)
 const filterBtns = document.querySelectorAll('.filter-btn');
 const skillCards = document.querySelectorAll('.skill-card-wrapper');
 
@@ -146,7 +146,7 @@ filterBtns.forEach(btn => {
             const cat = card.getAttribute('data-cat');
             if (filterVal === 'all' || cat === filterVal) {
                 gsap.to(card, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
-                card.style.style.display = 'block';
+                card.style.display = 'block';
             } else {
                 gsap.to(card, { opacity: 0, scale: 0.95, duration: 0.3, ease: 'power2.in' });
                 setTimeout(() => { card.style.display = 'none'; }, 300);
