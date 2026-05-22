@@ -568,7 +568,7 @@
     </footer>
 
     <script>
-        // Initialize Premium Lenis Smooth Scroll
+       // Initialize Premium Lenis Smooth Scroll
         const lenis = new Lenis();
         function raf(time) {
             lenis.raf(time);
@@ -585,10 +585,17 @@
         let lightsOnMode = true;
 
         function runSystemBoot() {
-            gsap.to(introGate, { opacity: 0, duration: 0.8, onComplete: () => introGate.style.display = 'none' });
-            setTimeout(typeLoop, 800);
+            gsap.to(introGate, { 
+                opacity: 0, 
+                duration: 0.5, 
+                onComplete: () => {
+                    introGate.style.pointerEvents = 'none';
+                    introGate.style.display = 'none';
+                } 
+            });
             
-            // GSAP ScrollTrigger Scroll Reveals
+            setTimeout(typeLoop, 500);
+            
             gsap.utils.toArray('.reveal-card').forEach(card => {
                 gsap.fromTo(card, { opacity: 0, y: 30 }, {
                     opacity: 1, y: 0, duration: 0.6,
@@ -602,18 +609,32 @@
             document.body.classList.remove('lights-on');
             document.body.classList.add('lights-off');
             widget.classList.add('active');
-            audio.play().catch(() => console.log('Audio protocol interaction deferred'));
-            widgetToggleBtn.innerText = "MUTE";
-            document.querySelector('.track-status').innerText = "PLAYING AMBIENT";
+            
+            if (audio) {
+                audio.play()
+                .then(() => {
+                    widgetToggleBtn.innerText = "MUTE";
+                    document.querySelector('.track-status').innerText = "PLAYING AMBIENT";
+                })
+                .catch((err) => {
+                    console.warn('Audio autoplay blocked or link restricted by browser safety settings:', err.message);
+                    widgetToggleBtn.innerText = "ERROR";
+                    document.querySelector('.track-status').innerText = "AUDIO BLOCKED";
+                });
+            }
+            
             runSystemBoot();
         });
 
-        document.getElementById('skipIntroBtn').addEventListener('click', runSystemBoot);
+        document.getElementById('skipIntroBtn').addEventListener('click', () => {
+            lightsOnMode = true;
+            runSystemBoot();
+        });
 
-        // Ambient Control Widget Loops
         widgetToggleBtn.addEventListener('click', () => {
+            if (!audio) return;
             if (audio.paused) {
-                audio.play();
+                audio.play().catch(e => console.log(e));
                 widgetToggleBtn.innerText = "MUTE";
                 document.querySelector('.track-status').innerText = "PLAYING AMBIENT";
             } else {
@@ -623,19 +644,18 @@
             }
         });
 
-        // Interactive Cursor Spotlight tracking alignment
         window.addEventListener('mousemove', (e) => {
-            if(!lightsOnMode) {
+            if(!lightsOnMode && spotlight) {
                 gsap.to(spotlight, { x: e.clientX - 250, y: e.clientY - 250, duration: 0.15, ease: "power1.out" });
             }
         });
 
-        // Monospace Text Typewriter Engine
         const typeTarget = document.getElementById('typewriter');
         const phrases = ["solutions_pipeline_ready...", "optimizing project data ledgers...", "built to organize."];
         let phraseIdx = 0, charIdx = 0, isDeleting = false;
 
         function typeLoop() {
+            if (!typeTarget) return;
             const currentPhrase = phrases[phraseIdx];
             if (isDeleting) {
                 typeTarget.innerText = currentPhrase.substring(0, charIdx - 1);
@@ -658,7 +678,6 @@
             setTimeout(typeLoop, typeSpeed);
         }
 
-        // Rolling Statistics Counters 
         const counters = document.querySelectorAll('.metric-num');
         const counterObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -683,7 +702,6 @@
         }, { threshold: 0.05 });
         counters.forEach(c => counterObserver.observe(c));
 
-        // Category Filter Toggles 
         const filterBtns = document.querySelectorAll('.filter-btn');
         const elementsToFilter = document.querySelectorAll('.skill-tag-wrapper, .logo-card-link');
         filterBtns.forEach(btn => {
@@ -703,23 +721,26 @@
             });
         });
 
-        // Accordion Section Triggers
         const accordionItems = document.querySelectorAll('.accordion-item');
         accordionItems.forEach(item => {
-            item.querySelector('.accordion-header').addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                accordionItems.forEach(i => {
-                    i.classList.remove('active');
-                    i.querySelector('.arrow').innerText = '▼';
+            const header = item.querySelector('.accordion-header');
+            if (header) {
+                header.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    accordionItems.forEach(i => {
+                        i.classList.remove('active');
+                        const arrow = i.querySelector('.arrow');
+                        if (arrow) arrow.innerText = '▼';
+                    });
+                    if (!isActive) {
+                        item.classList.add('active');
+                        const arrow = item.querySelector('.arrow');
+                        if (arrow) arrow.innerText = '▲';
+                    }
                 });
-                if (!isActive) {
-                    item.classList.add('active');
-                    item.querySelector('.arrow').innerText = '▲';
-                }
-            });
+            }
         });
 
-        // Magnetic UI Button Physics Engine Simulation
         const magnetics = document.querySelectorAll('.magnetic');
         magnetics.forEach(btn => {
             btn.addEventListener('mousemove', (e) => {
@@ -733,5 +754,6 @@
             });
         });
     </script>
+
 </body>
 </html>
