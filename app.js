@@ -1,10 +1,14 @@
-// Safe wrapper to ensure libraries exist before running animation scripts
+// Register Basic ScrollTrigger Library Configuration
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. Initialize Lenis Smooth Scroll safely
+    // 1. Initialize Lenis Smooth Scroll safely if available
     if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis();
-        if (typeof ScrollTrigger !== 'undefined') {
+        if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
             lenis.on('scroll', ScrollTrigger.update);
             gsap.ticker.add((time) => {
                 lenis.raf(time * 1000);
@@ -13,14 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Global State Parameters
+    // Global Interactive parameters
     let isCinematic = false;
     const audioTrack = document.getElementById('ambientTrack');
     if(audioTrack) {
-        audioTrack.volume = 0.05; 
+        audioTrack.volume = 0.05; // Lock low master mix output level
     }
 
-    // 2. Fixed Entry Gate Click Hooks with instant safety fallback
+    // 2. Gate Entry Logic Handlers
     const engageBtn = document.getElementById('engageCinematicBtn');
     const skipBtn = document.getElementById('skipIntroBtn');
 
@@ -37,16 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
             isCinematic = false;
             document.body.classList.add('lights-on');
             initializePortfolio();
-        });
-    }
-
-    // Emergency direct click bypass if GSAP fails to trigger
-    const gate = document.getElementById('introGate');
-    if (gate) {
-        gate.addEventListener('click', (e) => {
-            if (e.target.tagName !== 'BUTTON') {
-                initializePortfolio();
-            }
         });
     }
 
@@ -67,14 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             } else {
-                // Hard layout switch fallback if GSAP engine fails to initialize
                 gate.style.display = 'none';
                 startHeroTypewriter();
             }
         }
     }
 
-    // 3. Interactive Spotlight Control
+    // 3. Spotlight Coordinates Matrix Track
     const spotlight = document.getElementById('spotlight');
     window.addEventListener('mousemove', (e) => {
         if (!isCinematic || !spotlight) return;
@@ -88,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 4. Audio Playback Engine
+    // 4. Audio Control Mechanisms
     const widget = document.getElementById('musicWidget');
     const toggleBtn = document.getElementById('widgetToggleBtn');
 
@@ -99,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(toggleBtn) toggleBtn.innerText = 'MUTE';
             const status = document.querySelector('.track-status');
             if(status) status.innerText = 'LOOP ACTIVE';
-        }).catch(err => console.log("Audio waiting for deployment."));
+        }).catch(err => console.log("Waiting for interactive deployment frame."));
     }
 
     function pauseAudioSequence() {
@@ -121,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 5. Typewriter Engine
+    // 5. Hero Code Terminal Typewriter Module
     function startHeroTypewriter() {
         const lines = [
             "System optimized. Ready to coordinate operations.",
@@ -158,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
         type();
     }
 
-    // 6. Platform Tag Filters
+    // 6. Capability Tags Filtering Calculations
     const filterBtns = document.querySelectorAll('.filter-btn');
     const skillCards = document.querySelectorAll('.skill-card-wrapper');
 
@@ -185,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 7. Accordion Interactions
+    // 7. Timeline Work History Accordion Track Engine
     const accordions = document.querySelectorAll('.accordion-item');
     accordions.forEach(item => {
         const header = item.querySelector('.accordion-header');
@@ -220,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 8. Magnetic Effects
+    // 8. Magnetic Interface Enhancements
     const magnets = document.querySelectorAll('.magnetic');
     magnets.forEach(el => {
         el.addEventListener('mousemove', (e) => {
@@ -236,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 9. Metric Numbers Increment Tracker
+    // 9. Numeric Metrics Counter Tracker
     const metrics = document.querySelectorAll('.metric-num');
     metrics.forEach(metric => {
         const target = parseInt(metric.getAttribute('data-target'));
