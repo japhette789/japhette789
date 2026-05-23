@@ -1,11 +1,10 @@
-// Register Basic ScrollTrigger Library Configuration
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. Initialize Lenis Smooth Scroll safely if available
+    // 1. Smooth Scrolling Setup Safely
     if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis();
         if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
@@ -17,14 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Global Interactive parameters
     let isCinematic = false;
     const audioTrack = document.getElementById('ambientTrack');
     if(audioTrack) {
-        audioTrack.volume = 0.05; // Lock low master mix output level
+        audioTrack.volume = 0.05; // Guard output levels
     }
 
-    // 2. Gate Entry Logic Handlers
+    // 2. Gate Configuration
     const engageBtn = document.getElementById('engageCinematicBtn');
     const skipBtn = document.getElementById('skipIntroBtn');
 
@@ -48,12 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const gate = document.getElementById('introGate');
         if (gate) {
             gate.style.pointerEvents = 'none';
-            
             if (typeof gsap !== 'undefined') {
                 gsap.to(gate, {
-                    opacity: 0,
-                    duration: 0.5,
-                    ease: 'power2.out',
+                    opacity: 0, duration: 0.5, ease: 'power2.out',
                     onComplete: () => {
                         gate.style.display = 'none';
                         startHeroTypewriter();
@@ -67,21 +62,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 3. Spotlight Coordinates Matrix Track
+    // 3. Mouse Follow Spotlight Layer Logic
     const spotlight = document.getElementById('spotlight');
     window.addEventListener('mousemove', (e) => {
         if (!isCinematic || !spotlight) return;
         if (typeof gsap !== 'undefined') {
             gsap.to(spotlight, {
-                left: e.clientX,
-                top: e.clientY,
-                duration: 0.1,
-                ease: 'power1.out'
+                left: e.clientX, top: e.clientY, duration: 0.1, ease: 'power1.out'
             });
         }
     });
 
-    // 4. Audio Control Mechanisms
+    // 4. Audio Controls
     const widget = document.getElementById('musicWidget');
     const toggleBtn = document.getElementById('widgetToggleBtn');
 
@@ -92,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(toggleBtn) toggleBtn.innerText = 'MUTE';
             const status = document.querySelector('.track-status');
             if(status) status.innerText = 'LOOP ACTIVE';
-        }).catch(err => console.log("Waiting for interactive deployment frame."));
+        }).catch(err => console.log("Awaiting activation coordinate trigger."));
     }
 
     function pauseAudioSequence() {
@@ -106,20 +98,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if(toggleBtn) {
         toggleBtn.addEventListener('click', () => {
-            if (audioTrack.paused) {
-                playAudioSequence();
-            } else {
-                pauseAudioSequence();
-            }
+            if (audioTrack.paused) { playAudioSequence(); } else { pauseAudioSequence(); }
         });
     }
 
-    // 5. Hero Code Terminal Typewriter Module
+    // 5. Operations Console Lines Typewriter
     function startHeroTypewriter() {
         const lines = [
-            "System optimized. Ready to coordinate operations.",
-            "Inbox architecture standardized successfully.",
-            "SOP guidelines drafted. Client pipelines online."
+            "Operations target loops online. Infrastructure secure.",
+            "Calendars balanced. SLA ticket pipelines clear.",
+            "SOP documentation manuals compiled cleanly."
         ];
         let lineIdx = 0;
         let charIdx = 0;
@@ -131,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (charIdx < lines[lineIdx].length) {
                 targetNode.textContent += lines[lineIdx].charAt(charIdx);
                 charIdx++;
-                setTimeout(type, 40);
+                setTimeout(type, 35);
             } else {
                 setTimeout(erase, 2500);
             }
@@ -142,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (charIdx > 0) {
                 targetNode.textContent = lines[lineIdx].substring(0, charIdx - 1);
                 charIdx--;
-                setTimeout(erase, 20);
+                setTimeout(erase, 15);
             } else {
                 lineIdx = (lineIdx + 1) % lines.length;
                 setTimeout(type, 400);
@@ -151,34 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         type();
     }
 
-    // 6. Capability Tags Filtering Calculations
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const skillCards = document.querySelectorAll('.skill-card-wrapper');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const filterVal = btn.getAttribute('data-filter');
-            
-            skillCards.forEach(card => {
-                const cat = card.getAttribute('data-cat');
-                if (filterVal === 'all' || cat === filterVal) {
-                    if (typeof gsap !== 'undefined') {
-                        gsap.to(card, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
-                    }
-                    card.style.display = 'block';
-                } else {
-                    if (typeof gsap !== 'undefined') {
-                        gsap.to(card, { opacity: 0, scale: 0.95, duration: 0.3, ease: 'power2.in' });
-                    }
-                    setTimeout(() => { card.style.display = 'none'; }, 300);
-                }
-            });
-        });
-    });
-
-    // 7. Timeline Work History Accordion Track Engine
+    // 6. Chronological Work History Accordions
     const accordions = document.querySelectorAll('.accordion-item');
     accordions.forEach(item => {
         const header = item.querySelector('.accordion-header');
@@ -213,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 8. Magnetic Interface Enhancements
+    // 7. Interactive Elements Magnetic Controls
     const magnets = document.querySelectorAll('.magnetic');
     magnets.forEach(el => {
         el.addEventListener('mousemove', (e) => {
@@ -229,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 9. Numeric Metrics Counter Tracker
+    // 8. Visual Metric Progress Tracker Counters
     const metrics = document.querySelectorAll('.metric-num');
     metrics.forEach(metric => {
         const target = parseInt(metric.getAttribute('data-target'));
@@ -240,12 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 onEnter: () => {
                     let obj = { val: 0 };
                     gsap.to(obj, {
-                        val: target,
-                        duration: 2,
-                        ease: 'power2.out',
-                        onUpdate: () => {
-                            metric.innerText = Math.ceil(obj.val).toLocaleString();
-                        }
+                        val: target, duration: 1.8, ease: 'power2.out',
+                        onUpdate: () => { metric.innerText = Math.ceil(obj.val).toLocaleString(); }
                     });
                 }
             });
