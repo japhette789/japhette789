@@ -3,8 +3,8 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. Smooth Scrolling Setup Safely
+
+    // 1. Smooth Scrolling Setup
     if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis();
         if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isCinematic = false;
     const audioTrack = document.getElementById('ambientTrack');
-    if(audioTrack) {
-        audioTrack.volume = 0.05; // Lock output acoustics safely
+    if (audioTrack) {
+        audioTrack.volume = 0.05;
     }
 
     // 2. Entrance Screen Controls
@@ -52,17 +52,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     onComplete: () => {
                         gate.style.display = 'none';
                         startHeroTypewriter();
+                        initScrollAnimations();
                         if (isCinematic) { playAudioSequence(); }
                     }
                 });
             } else {
                 gate.style.display = 'none';
                 startHeroTypewriter();
+                initScrollAnimations();
             }
         }
     }
 
-    // 3. Mouse Following Spotlight Layer Vector
+    // 3. Mouse-Following Spotlight (Cinematic Mode Only)
     const spotlight = document.getElementById('spotlight');
     window.addEventListener('mousemove', (e) => {
         if (!isCinematic || !spotlight) return;
@@ -78,42 +80,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleBtn = document.getElementById('widgetToggleBtn');
 
     function playAudioSequence() {
-        if(!audioTrack) return;
+        if (!audioTrack) return;
         audioTrack.play().then(() => {
-            if(widget) widget.classList.add('playing');
-            if(toggleBtn) toggleBtn.innerText = 'MUTE';
+            if (widget) widget.classList.add('playing');
+            if (toggleBtn) toggleBtn.innerText = 'MUTE';
             const status = document.querySelector('.track-status');
-            if(status) status.innerText = 'LOOP ACTIVE';
-        }).catch(err => console.log("Awaiting activation coordinates."));
+            if (status) status.innerText = 'LOOP ACTIVE';
+        }).catch(err => console.log("Awaiting user activation."));
     }
 
     function pauseAudioSequence() {
-        if(!audioTrack) return;
+        if (!audioTrack) return;
         audioTrack.pause();
-        if(widget) widget.classList.remove('playing');
-        if(toggleBtn) toggleBtn.innerText = 'PLAY';
+        if (widget) widget.classList.remove('playing');
+        if (toggleBtn) toggleBtn.innerText = 'PLAY';
         const status = document.querySelector('.track-status');
-        if(status) status.innerText = 'SYSTEM IDLE';
+        if (status) status.innerText = 'SYSTEM IDLE';
     }
 
-    if(toggleBtn) {
+    if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             if (audioTrack.paused) { playAudioSequence(); } else { pauseAudioSequence(); }
         });
     }
 
-    // 5. Operations Console Lines Typewriter (Highlights AI/Git Skills)
+    // 5. Hero Typewriter — Updated lines to reflect the new headline angle
     function startHeroTypewriter() {
         const lines = [
-            "Operations target loops online. IT systems engineered.",
-            "AI SOP prototyping running via prompt-engineered structures.",
-            "Live system configurations deployed securely via GitHub version layers."
+            "14 years of ops. IT degree. Zero missed milestones.",
+            "AI SOP frameworks deployed. 40% admin overhead eliminated.",
+            "Systems built from scratch. Documented. Version-controlled."
         ];
         let lineIdx = 0;
         let charIdx = 0;
         const targetNode = document.getElementById('typewriter');
-        if(!targetNode) return;
-        
+        if (!targetNode) return;
+
         function type() {
             if (!targetNode) return;
             if (charIdx < lines[lineIdx].length) {
@@ -121,16 +123,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 charIdx++;
                 setTimeout(type, 35);
             } else {
-                setTimeout(erase, 2500);
+                setTimeout(erase, 2800);
             }
         }
-        
+
         function erase() {
             if (!targetNode) return;
             if (charIdx > 0) {
                 targetNode.textContent = lines[lineIdx].substring(0, charIdx - 1);
                 charIdx--;
-                setTimeout(erase, 15);
+                setTimeout(erase, 12);
             } else {
                 lineIdx = (lineIdx + 1) % lines.length;
                 setTimeout(type, 400);
@@ -139,32 +141,85 @@ document.addEventListener("DOMContentLoaded", () => {
         type();
     }
 
-    // 6. Chronological Work History Accordions
+    // 6. Scroll-triggered Reveal Animations
+    function initScrollAnimations() {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+        // Reveal service cards on scroll
+        gsap.utils.toArray('.reveal-card').forEach((card, i) => {
+            gsap.fromTo(card,
+                { opacity: 0, y: 24 },
+                {
+                    opacity: 1, y: 0, duration: 0.5, delay: (i % 3) * 0.08,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' }
+                }
+            );
+        });
+
+        // Reveal case study metric cards
+        gsap.utils.toArray('.cs-metric-card').forEach((card, i) => {
+            gsap.fromTo(card,
+                { opacity: 0, scale: 0.96 },
+                {
+                    opacity: 1, scale: 1, duration: 0.4, delay: i * 0.07,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' }
+                }
+            );
+        });
+
+        // Reveal testimonials
+        gsap.utils.toArray('.testimonial-card').forEach((card, i) => {
+            gsap.fromTo(card,
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1, y: 0, duration: 0.5, delay: i * 0.1,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' }
+                }
+            );
+        });
+    }
+
+    // 7. Work History Accordions
     const accordions = document.querySelectorAll('.accordion-item');
+
+    // Open the first item on load
+    const firstItem = accordions[0];
+    if (firstItem) {
+        const firstContent = firstItem.querySelector('.accordion-content');
+        if (firstContent && typeof gsap !== 'undefined') {
+            gsap.set(firstContent, { height: 'auto' });
+        } else if (firstContent) {
+            firstContent.style.height = 'auto';
+        }
+    }
+
     accordions.forEach(item => {
         const header = item.querySelector('.accordion-header');
-        if(header) {
+        if (header) {
             header.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
+
                 accordions.forEach(acc => {
                     acc.classList.remove('active');
                     const arrow = acc.querySelector('.arrow');
-                    if(arrow) arrow.innerText = '▼';
+                    if (arrow) arrow.innerText = '▼';
                     const content = acc.querySelector('.accordion-content');
-                    if(content && typeof gsap !== 'undefined') {
+                    if (content && typeof gsap !== 'undefined') {
                         gsap.to(content, { height: 0, duration: 0.4, ease: 'power2.inOut' });
                     } else if (content) {
                         content.style.height = '0';
                     }
                 });
-                
+
                 if (!isActive) {
                     item.classList.add('active');
                     const arrow = item.querySelector('.arrow');
-                    if(arrow) arrow.innerText = '▲';
+                    if (arrow) arrow.innerText = '▲';
                     const content = item.querySelector('.accordion-content');
-                    if(content && typeof gsap !== 'undefined') {
+                    if (content && typeof gsap !== 'undefined') {
                         gsap.to(content, { height: 'auto', duration: 0.5, ease: 'power2.out' });
                     } else if (content) {
                         content.style.height = 'auto';
@@ -174,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 7. Interactive Elements Magnetic Scripts
+    // 8. Magnetic Button Interactions
     const magnets = document.querySelectorAll('.magnetic');
     magnets.forEach(el => {
         el.addEventListener('mousemove', (e) => {
