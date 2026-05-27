@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let isCinematic = false;
     const audioTrack = document.getElementById('ambientTrack');
     if(audioTrack) {
-        audioTrack.volume = 0.05; // Guard output levels
+        audioTrack.volume = 0.05; // Lock output acoustics safely
     }
 
-    // 2. Gate Configuration
+    // 2. Entrance Screen Controls
     const engageBtn = document.getElementById('engageCinematicBtn');
     const skipBtn = document.getElementById('skipIntroBtn');
 
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 3. Mouse Follow Spotlight Layer Logic
+    // 3. Mouse Following Spotlight Layer Vector
     const spotlight = document.getElementById('spotlight');
     window.addEventListener('mousemove', (e) => {
         if (!isCinematic || !spotlight) return;
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(toggleBtn) toggleBtn.innerText = 'MUTE';
             const status = document.querySelector('.track-status');
             if(status) status.innerText = 'LOOP ACTIVE';
-        }).catch(err => console.log("Awaiting activation coordinate trigger."));
+        }).catch(err => console.log("Awaiting activation coordinates."));
     }
 
     function pauseAudioSequence() {
@@ -102,12 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 5. Operations Console Lines Typewriter
+    // 5. Operations Console Lines Typewriter (Highlights AI/Git Skills)
     function startHeroTypewriter() {
         const lines = [
-            "Operations target loops online. Infrastructure secure.",
-            "Calendars balanced. SLA ticket pipelines clear.",
-            "SOP documentation manuals compiled cleanly."
+            "Operations target loops online. IT systems engineered.",
+            "AI SOP prototyping running via prompt-engineered structures.",
+            "Live system configurations deployed securely via GitHub version layers."
         ];
         let lineIdx = 0;
         let charIdx = 0;
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 7. Interactive Elements Magnetic Controls
+    // 7. Interactive Elements Magnetic Scripts
     const magnets = document.querySelectorAll('.magnetic');
     magnets.forEach(el => {
         el.addEventListener('mousemove', (e) => {
@@ -188,26 +188,5 @@ document.addEventListener("DOMContentLoaded", () => {
             if (typeof gsap === 'undefined') return;
             gsap.to(el, { x: 0, y: 0, duration: 0.4, ease: 'elastic.out(1, 0.3)' });
         });
-    });
-
-    // 8. Visual Metric Progress Tracker Counters
-    const metrics = document.querySelectorAll('.metric-num');
-    metrics.forEach(metric => {
-        const target = parseInt(metric.getAttribute('data-target'));
-        if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
-            ScrollTrigger.create({
-                trigger: metric,
-                start: 'top 90%',
-                onEnter: () => {
-                    let obj = { val: 0 };
-                    gsap.to(obj, {
-                        val: target, duration: 1.8, ease: 'power2.out',
-                        onUpdate: () => { metric.innerText = Math.ceil(obj.val).toLocaleString(); }
-                    });
-                }
-            });
-        } else {
-            metric.innerText = target.toString();
-        }
     });
 });
