@@ -253,4 +253,63 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // 10. Hamburger Mobile Navigation
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileOverlay = document.getElementById('mobileNavOverlay');
+    const mobileClose = document.getElementById('mobileNavClose');
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+    function openMobileNav() {
+        if (!mobileOverlay || !hamburgerBtn) return;
+        mobileOverlay.classList.add('open');
+        hamburgerBtn.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+        if (!mobileOverlay || !hamburgerBtn) return;
+        mobileOverlay.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileNav);
+    if (mobileClose) mobileClose.addEventListener('click', closeMobileNav);
+
+    // Close on any nav link click
+    mobileNavItems.forEach(item => {
+        item.addEventListener('click', closeMobileNav);
+    });
+
+    // Close on overlay background click
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileOverlay) closeMobileNav();
+        });
+    }
+
+    // 11. Skill Bar Scroll Animation
+    function animateSkillBars() {
+        const bars = document.querySelectorAll('.skill-bar-fill');
+        if (!bars.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const targetWidth = bar.style.width;
+                    // Reset then animate
+                    bar.style.width = '0%';
+                    requestAnimationFrame(() => {
+                        setTimeout(() => { bar.style.width = targetWidth; }, 100);
+                    });
+                    observer.unobserve(bar);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        bars.forEach(bar => observer.observe(bar));
+    }
+    animateSkillBars();
+
 }); // END DOMContentLoaded
