@@ -311,5 +311,284 @@ document.addEventListener("DOMContentLoaded", () => {
         bars.forEach(bar => observer.observe(bar));
     }
     animateSkillBars();
+    // =====================================================
+// JAPHETTE PORTFOLIO CHATBOT
+// =====================================================
+(function() {
+    const chatToggle = document.getElementById('jp-chat-toggle');
+    const chatWindow = document.getElementById('jp-chat-window');
+    const chatMinimize = document.getElementById('jp-chat-minimize');
+    const chatForm = document.getElementById('jp-chat-input-form');
+    const chatInput = document.getElementById('jp-chat-input');
+    const chatMessages = document.getElementById('jp-chat-messages');
+    const chatSuggestions = document.getElementById('jp-chat-suggestions');
+    const iconOpen = document.getElementById('jp-chat-icon-open');
+    const iconClose = document.getElementById('jp-chat-icon-close');
+
+    if (!chatToggle || !chatWindow) return;
+
+    // Knowledge base - trained on Japhette's portfolio
+    const knowledge = {
+        experience: `Japhette has **14+ years of professional experience** spanning:
+
+• **General Virtual Assistant** at Fit Body Boot Camp (Aug 2023 – Present) — lead generation, CRM management, scheduling, billing, and performance reporting
+
+• **Customer Service Representative** at Inspiro/1800 Flowers (Apr–Aug 2023) — order processing, issue resolution, SLA compliance
+
+• **Principal Consultant & Owner** at WJ Construction & Engineering (Sept 2012 – Present) — operations management, team supervision, IT systems, project coordination
+
+• **Pre-Sales Engineer** at Phoenix Solutions (May–July 2012) — proposals, technical support, sales analysis
+
+He holds a **BS in Information Technology (Major in System Engineering)** from Colegio de San Juan de Letran.`,
+
+        services: `Japhette offers these core services:
+
+📋 **Executive VA Support** — inbox/calendar management, scheduling, document organization
+
+⚙️ **Operations Management** — SOP creation, team coordination, process optimization, workflow audits
+
+📊 **CRM & Data Administration** — Salesforce, HubSpot setup/migration, lead database auditing, pipeline reporting
+
+🤖 **AI SOP Engineering** — custom SOP frameworks using ChatGPT, Claude, Gemini; version-controlled documentation
+
+🖥️ **Technical & IT Support** — system diagnostics, platform integrations, staff training
+
+Would you like details on any specific service?`,
+
+        rates: `Here are Japhette's typical rates:
+
+| Service | Hourly | Retainer (20 hrs/wk) |
+|---------|--------|----------------------|
+| Executive VA | $8–12/hr | $1,200/mo |
+| Operations Management | $12–18/hr | $1,800/mo |
+| CRM & Data Admin | $10–15/hr | Project: $300–800 |
+| AI SOP Engineering | — | Project: $200–600 |
+| Technical Support | $10–15/hr | — |
+
+Rates are negotiable based on scope and engagement length. Want to discuss a specific project?`,
+
+        availability: `📍 **Timezone:** Philippine Standard Time (UTC+8)
+
+🕐 **Working Hours:** Monday–Friday, 8AM–6PM PHT
+
+🌐 **Flexibility:** Available for US/EU timezone overlap
+
+✅ **Currently open to:**
+• Full-time remote roles
+• Part-time retainers
+• Project-based engagements
+
+He typically responds within 24 hours.`,
+
+        contact: `You can reach Japhette through:
+
+📧 **Email:** jap.pulido789@gmail.com
+📱 **Viber:** 09569027896
+💼 **LinkedIn:** linkedin.com/in/japhette-alec-pulido
+
+Or use the contact form on this page — he'll get back to you within 24 hours.
+
+Would you like me to help you draft a message?`,
+
+        tools: `Japhette is proficient in 15+ platforms:
+
+**Productivity:** Google Workspace, Microsoft 365, Notion, ClickUp
+**CRM:** Salesforce, Zendesk
+**Communication:** Slack, Discord, Lark, Outlook
+**AI Tools:** ChatGPT, Claude, Google Gemini
+**Technical:** Git/GitHub, SAP, TeamViewer
+**Design:** Canva
+
+He specializes in integrating these tools into automated workflows.`,
+
+        skills: `Japhette's core competencies:
+
+**Expert-level:**
+• Executive VA Support (96%)
+• SOP Writing & Documentation (95%)
+• Calendar & Inbox Management (98%)
+• Customer Service / Zendesk (98%)
+• AI Prompt Engineering (92%)
+• CRM Management (94%)
+
+**Proficient:**
+• Financial Reconciliation (82%)
+• IT Systems & Diagnostics (80%)
+• Git Version Control (78%)
+• Proposal Writing (84%)`,
+
+        resume: `You can download Japhette's full resume using the **"Download Resume"** button in the hero section above, or I can email it to you.
+
+His resume includes:
+• Complete work history
+• Education credentials
+• Key achievements
+• Technical skills
+• Character references
+
+Would you like me to highlight anything specific?`,
+
+        ai: `Japhette actively uses AI in his work:
+
+🤖 **AI SOP Engineering** — Uses Google Gemini and ChatGPT to rapidly build cross-departmental SOPs
+
+🔍 **Prompt-Based Code Auditing** — AI-assisted development and system auditing
+
+📊 **AI-Driven Reporting** — Generates business performance summaries faster than manual methods
+
+📝 **Workflow Template Design** — Builds reusable Notion/ClickUp templates
+
+This portfolio itself was built using AI-assisted code generation via Google Gemini.`,
+
+        casestudy: `**Featured Case Study: Fit Body Boot Camp**
+
+**Problem:** 10,000+ unverified leads, no SOPs, billing handled by memory, scheduling conflicts
+
+**Approach:**
+• Full CRM audit and deduplication
+• AI-engineered complete SOP library using Google Gemini
+• Timezone-aware scheduling system
+• Structured financial reconciliation process
+
+**Results:**
+• 40% admin overhead reduction
+• 100% billing accuracy
+• 98% customer satisfaction
+• 5x faster staff onboarding
+• Zero missed executive milestones`,
+
+        hire: `Great choice! Here's how to move forward:
+
+1. **Quick chat:** Email jap.pulido789@gmail.com with your project details
+2. **Schedule a call:** Include your timezone and preferred times
+3. **Use the contact form:** Right here on this page
+
+Japhette typically responds within 24 hours and can start on most projects within a week.
+
+What type of engagement are you considering?`,
+
+        default: `I can help you learn about:
+
+• **Experience** — Japhette's 14-year career background
+• **Services** — What he offers
+• **Rates** — Pricing and packages
+• **Availability** — Timezone and hours
+• **Skills & Tools** — Technical proficiencies
+• **Contact** — How to reach him
+
+What would you like to know?`
+    };
+
+    // Intent matching
+    function getResponse(input) {
+        const q = input.toLowerCase().trim();
+
+        if (/experience|background|history|work|career|job|employ|years/.test(q)) {
+            return knowledge.experience;
+        }
+        if (/service|offer|do you do|can you do|help with|provide/.test(q)) {
+            return knowledge.services;
+        }
+        if (/rate|price|cost|charge|fee|hour|retainer|budget|afford/.test(q)) {
+            return knowledge.rates;
+        }
+        if (/available|timezone|time zone|hours|when|schedule|free/.test(q)) {
+            return knowledge.availability;
+        }
+        if (/contact|reach|email|phone|viber|linkedin|talk|message|call/.test(q)) {
+            return knowledge.contact;
+        }
+        if (/tool|platform|software|app|use|tech|stack/.test(q)) {
+            return knowledge.tools;
+        }
+        if (/skill|proficien|expert|good at|capable|competen/.test(q)) {
+            return knowledge.skills;
+        }
+        if (/resume|cv|download|pdf|document/.test(q)) {
+            return knowledge.resume;
+        }
+        if (/ai|artificial|gemini|chatgpt|claude|automat|prompt/.test(q)) {
+            return knowledge.ai;
+        }
+        if (/case|study|project|example|result|achieve|success|fit body|fbbc/.test(q)) {
+            return knowledge.casestudy;
+        }
+        if (/hire|work with|engage|start|begin|onboard|contract/.test(q)) {
+            return knowledge.hire;
+        }
+        if (/hello|hi|hey|good morning|good afternoon|good evening/.test(q)) {
+            return `Hey there! 👋 Welcome to Japhette's portfolio. I'm here to answer any questions about his experience, services, or availability. What would you like to know?`;
+        }
+        if (/thank|thanks|appreciate/.test(q)) {
+            return `You're welcome! 😊 Is there anything else you'd like to know about Japhette's services?`;
+        }
+        if (/bye|goodbye|see you|later/.test(q)) {
+            return `Thanks for stopping by! Feel free to reach out anytime. You can contact Japhette directly at jap.pulido789@gmail.com. Have a great day! 👋`;
+        }
+
+        return knowledge.default;
+    }
+
+    // Add message to chat
+    function addMessage(text, isUser = false) {
+        const msg = document.createElement('div');
+        msg.className = `jp-msg ${isUser ? 'jp-msg-user' : 'jp-msg-bot'}`;
+        msg.innerHTML = `<p>${formatMessage(text)}</p>`;
+        chatMessages.appendChild(msg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Simple markdown formatting
+    function formatMessage(text) {
+        return text
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\n/g, '<br>');
+    }
+
+    // Toggle chat window
+    function toggleChat() {
+        const isOpen = chatWindow.classList.contains('open');
+        chatWindow.classList.toggle('open');
+        iconOpen.style.display = isOpen ? 'block' : 'none';
+        iconClose.style.display = isOpen ? 'none' : 'block';
+        if (!isOpen) {
+            setTimeout(() => chatInput.focus(), 300);
+        }
+    }
+
+    // Event listeners
+    chatToggle.addEventListener('click', toggleChat);
+    chatMinimize.addEventListener('click', toggleChat);
+
+    chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = chatInput.value.trim();
+        if (!query) return;
+
+        addMessage(query, true);
+        chatInput.value = '';
+
+        // Simulate typing delay
+        setTimeout(() => {
+            const response = getResponse(query);
+            addMessage(response);
+        }, 400 + Math.random() * 400);
+    });
+
+    // Suggestion buttons
+    chatSuggestions.addEventListener('click', (e) => {
+        if (e.target.classList.contains('jp-suggestion')) {
+            const query = e.target.dataset.query;
+            addMessage(query.charAt(0).toUpperCase() + query.slice(1), true);
+
+            setTimeout(() => {
+                const response = knowledge[query] || knowledge.default;
+                addMessage(response);
+            }, 400 + Math.random() * 400);
+        }
+    });
+
+})();
+
 
 }); // END DOMContentLoaded
