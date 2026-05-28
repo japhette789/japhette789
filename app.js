@@ -244,4 +244,13 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap.to(el, { x: 0, y: 0, duration: 0.4, ease: 'elastic.out(1, 0.3)' });
         });
     });
-});
+
+    // 9. Easter Egg — Rick Astley
+    const easterBtn = document.getElementById('easterEggBtn');
+    if (easterBtn) {
+        easterBtn.addEventListener('click', () => {
+            window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+        });
+    }
+
+}); // END DOMContentLoaded
