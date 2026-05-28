@@ -15,6 +15,25 @@
     <meta property="og:description" content="IT-trained VA who builds the systems, not just runs them. 14+ years of operational precision, AI-driven workflows, and zero-error administration.">
     <meta property="og:url" content="https://japhette-vms.github.io/">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://japhette-vms.github.io/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Japhette Alec Pulido | Operations Manager & Executive VA">
+    <meta name="twitter:description" content="IT-trained VA who builds the systems, not just runs them. 14+ years of experience.">
+    <meta name="twitter:image" content="https://japhette-vms.github.io/og-image.png">
+
+    <!-- Favicon — inline SVG so no file upload needed -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23111'/><text y='68' x='50' text-anchor='middle' font-size='52' font-family='Inter,sans-serif' font-weight='700' fill='white'>JP</text></svg>">
+
+    <!-- Google Analytics — replace G-XXXXXXXXXX with your real Measurement ID from analytics.google.com -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 
     <!-- Typography & Icon Layers -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,16 +75,37 @@
             <div class="brand-group">
                 <a href="#" class="logo">JAPHETTE PULIDO<span class="dot">.</span></a>
                 <span class="nav-role-badge">OPS MANAGER | EXECUTIVE VA</span>
+                <span class="nav-avail-dot" title="Open to new roles"><span class="avail-pulse"></span>AVAILABLE</span>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about" class="nav-item">// Profile</a></li>
                 <li><a href="#ticker-section" class="nav-item">// Metrics</a></li>
                 <li><a href="#services" class="nav-item">// Core Functions</a></li>
                 <li><a href="#experience" class="nav-item">// Work Track</a></li>
                 <li><a href="#contact" class="btn-nav magnetic">Contact Me</a></li>
             </ul>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">✕</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#about" class="mobile-nav-item">// Profile</a></li>
+            <li><a href="#ticker-section" class="mobile-nav-item">// Metrics</a></li>
+            <li><a href="#services" class="mobile-nav-item">// Core Functions</a></li>
+            <li><a href="#experience" class="mobile-nav-item">// Work Track</a></li>
+            <li><a href="#case-study" class="mobile-nav-item">// Case Study</a></li>
+            <li><a href="#contact" class="mobile-nav-item mobile-nav-cta">Contact Me →</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+            <a href="mailto:jap.pulido789@gmail.com" class="mobile-contact-link"><i class="fa-solid fa-envelope"></i> jap.pulido789@gmail.com</a>
+            <a href="https://www.linkedin.com/in/japhette-alec-pulido" target="_blank" class="mobile-contact-link"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </div>
 
     <!-- Floating Audio Interaction Widget -->
     <div class="music-widget glass" id="musicWidget">
@@ -99,12 +139,17 @@
             </div>
 
             <span class="hero-badge">// IT-TRAINED OPERATIONS MANAGER & EXECUTIVE VA</span>
+            <div class="hero-open-to-badge">
+                <span class="open-to-dot"></span>
+                <span>OPEN TO: Full-Time Remote Roles &nbsp;·&nbsp; Part-Time Retainer &nbsp;·&nbsp; Project Engagements</span>
+            </div>
             <h1 class="editorial-title reveal-text">The VA Who<br><span class="glow-txt">Builds the System,<br>Not Just Runs It.</span></h1>
             <p class="hero-desc">14 years of hands-on experience in operations management, executive support, and IT systems — combined. I don't just manage your workflows, I design, automate, and document them so your business runs without you having to repeat yourself.</p>
 
             <div class="hero-buttons">
-                <a href="#experience" class="btn-primary magnetic">View Work History</a>
+                <a href="#contact" class="btn-primary magnetic">Work With Me</a>
                 <a href="resume.pdf" download="Japhette_Pulido_Resume.pdf" class="btn-secondary magnetic"><i class="fa-solid fa-file-arrow-down" style="margin-right: 8px;"></i> Download Resume</a>
+                <a href="services.pdf" download="Japhette_Pulido_Services.pdf" class="btn-secondary magnetic"><i class="fa-solid fa-file-lines" style="margin-right: 8px;"></i> Services & Rates</a>
             </div>
         </div>
     </header>
@@ -232,7 +277,136 @@
         </div>
     </section>
 
-    <!-- Profile Summary with "Live Status Focus Tracker" -->
+    <!-- Why Hire Me: VA Comparison Section -->
+    <section id="why-me" class="section border-top why-me-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="index-num">// THE DIFFERENCE</span>
+                <h2>Why Japhette vs. A Regular VA</h2>
+                <div class="line"></div>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-col comparison-col--regular glass">
+                    <div class="comparison-col-header">
+                        <span class="comparison-tag comparison-tag--grey">REGULAR VA</span>
+                        <h3>Task executor</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li class="comparison-item comparison-item--no"><i class="fa-solid fa-xmark"></i> Uses the tools given to them</li>
+                        <li class="comparison-item comparison-item--no"><i class="fa-solid fa-xmark"></i> Follows SOPs written by someone else</li>
+                        <li class="comparison-item comparison-item--no"><i class="fa-solid fa-xmark"></i> Escalates technical issues upward</li>
+                        <li class="comparison-item comparison-item--no"><i class="fa-solid fa-xmark"></i> Needs detailed instructions for each task</li>
+                        <li class="comparison-item comparison-item--no"><i class="fa-solid fa-xmark"></i> Works in one platform at a time</li>
+                        <li class="comparison-item comparison-item--no"><i class="fa-solid fa-xmark"></i> Manages data as instructed</li>
+                        <li class="comparison-item comparison-item--no"><i class="fa-solid fa-xmark"></i> Replaces themselves when they leave</li>
+                    </ul>
+                </div>
+                <div class="comparison-col comparison-col--japhette glass">
+                    <div class="comparison-col-header">
+                        <span class="comparison-tag comparison-tag--accent">JAPHETTE PULIDO</span>
+                        <h3>Systems architect</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li class="comparison-item comparison-item--yes"><i class="fa-solid fa-check"></i> Evaluates, selects & integrates the right tools</li>
+                        <li class="comparison-item comparison-item--yes"><i class="fa-solid fa-check"></i> Authors SOPs from scratch using AI frameworks</li>
+                        <li class="comparison-item comparison-item--yes"><i class="fa-solid fa-check"></i> Resolves technical issues independently (BS in IT)</li>
+                        <li class="comparison-item comparison-item--yes"><i class="fa-solid fa-check"></i> Self-directs and documents every process</li>
+                        <li class="comparison-item comparison-item--yes"><i class="fa-solid fa-check"></i> Cross-platform operations across 15+ integrated systems</li>
+                        <li class="comparison-item comparison-item--yes"><i class="fa-solid fa-check"></i> Audits, cleans and structures data infrastructure</li>
+                        <li class="comparison-item comparison-item--yes"><i class="fa-solid fa-check"></i> Leaves documented systems that outlast the engagement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Proficiency Section -->
+    <section id="skills-proficiency" class="section border-top">
+        <div class="container">
+            <div class="section-header">
+                <span class="index-num">// SKILL DEPTH MATRIX</span>
+                <h2>Proficiency Levels</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category glass">
+                    <span class="skill-cat-label">OPERATIONS & ADMIN</span>
+                    <div class="skill-bar-list">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Executive VA Support</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:96%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>SOP Writing & Documentation</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:95%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Calendar & Inbox Management</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:98%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Financial Reconciliation</span><span class="skill-level-tag proficient">Proficient</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Remote Team Leadership</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category glass">
+                    <span class="skill-cat-label">TECHNOLOGY & AI</span>
+                    <div class="skill-bar-list">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>AI Prompt Engineering</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>CRM Management & Migration</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:94%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>IT Systems & Diagnostics</span><span class="skill-level-tag proficient">Proficient</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Git / Version Control</span><span class="skill-level-tag proficient">Proficient</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Workflow Automation (Notion / ClickUp)</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category glass">
+                    <span class="skill-cat-label">COMMUNICATION & SUPPORT</span>
+                    <div class="skill-bar-list">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Customer Service (Zendesk)</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:98%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Proposal & Contract Writing</span><span class="skill-level-tag proficient">Proficient</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:84%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Staff Training & Onboarding</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Multi-Platform Communication</span><span class="skill-level-tag expert">Expert</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:93%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-top"><span>Canva / Visual Documentation</span><span class="skill-level-tag familiar">Familiar</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="about-narrative section">
         <div class="container grid-2-profile">
             <div class="profile-frame-side">
@@ -598,6 +772,30 @@
                 <span class="index-num">// GET IN TOUCH</span>
                 <h2 class="editorial-title-contact">Let's Work Together.</h2>
                 <p class="contact-sub-custom">Ready to bring structure, automation, and accountability to your operations? Reach out — and let's talk about how I can help.</p>
+
+                <div class="availability-box glass">
+                    <div class="avail-row">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <span class="avail-label">TIMEZONE</span>
+                            <span class="avail-value">Philippine Standard Time (PST) — UTC+8</span>
+                        </div>
+                    </div>
+                    <div class="avail-row">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <div>
+                            <span class="avail-label">AVAILABILITY</span>
+                            <span class="avail-value">Mon–Fri, 8AM–6PM PHT &nbsp;·&nbsp; Flexible for US/EU time zones</span>
+                        </div>
+                    </div>
+                    <div class="avail-row">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <div>
+                            <span class="avail-label">ENGAGEMENT TYPES</span>
+                            <span class="avail-value">Full-Time Remote &nbsp;·&nbsp; Part-Time Retainer &nbsp;·&nbsp; Project-Based</span>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="direct-channels-stack">
                     <div class="channel-node">
