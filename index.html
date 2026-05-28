@@ -857,4 +857,42 @@
 
     <script src="app.js"></script>
 </body>
+    <!-- Japhette Portfolio Chatbot -->
+<div id="jp-chatbot-container">
+    <button id="jp-chat-toggle" aria-label="Open chat">
+        <svg id="jp-chat-icon-open" xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <svg id="jp-chat-icon-close" xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div id="jp-chat-window">
+        <div id="jp-chat-header">
+            <div id="jp-chat-header-info">
+                <span id="jp-chat-avatar">JP</span>
+                <div>
+                    <span id="jp-chat-name">Japhette's Assistant</span>
+                    <span id="jp-chat-status"><span class="jp-status-dot"></span>Online</span>
+                </div>
+            </div>
+            <button id="jp-chat-minimize" aria-label="Minimize chat">−</button>
+        </div>
+        <div id="jp-chat-messages">
+            <div class="jp-msg jp-msg-bot">
+                <p>Hey! 👋 I'm Japhette's virtual assistant. I can tell you about his experience, services, rates, or help you get in touch. What would you like to know?</p>
+            </div>
+        </div>
+        <div id="jp-chat-suggestions">
+            <button class="jp-suggestion" data-query="experience">Experience</button>
+            <button class="jp-suggestion" data-query="services">Services</button>
+            <button class="jp-suggestion" data-query="rates">Rates</button>
+            <button class="jp-suggestion" data-query="contact">Contact</button>
+            <button class="jp-suggestion" data-query="availability">Availability</button>
+        </div>
+        <form id="jp-chat-input-form">
+            <input type="text" id="jp-chat-input" placeholder="Type your question..." autocomplete="off">
+            <button type="submit" id="jp-chat-send" aria-label="Send message">
+                <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+        </form>
+    </div>
+</div>
+
 </html>
