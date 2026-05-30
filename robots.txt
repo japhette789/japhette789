@@ -38,4 +38,4 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
-Sitemap: https://japhette-vms.github.io/sitemap.xml
+Sitemap: https://japhette789.github.io/japhette-vms.github.io//sitemap.xml
